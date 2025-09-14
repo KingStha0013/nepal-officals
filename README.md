@@ -17,4 +17,4 @@
 ## कसरी चलाउने? 🚀
 1. Repo clone वा download गर्नुहोस्:  
    ```bash
-   git clone https://github.com/KingStha0013/api-app.git
+   git clone https://github.com/KingStha0013/nepal-officals.git
