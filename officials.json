@@ -1,20 +1,134 @@
 [
   {
-    "name": "Susila Karki",
+    "name": "Sushila Karki",
     "position": "Prime Minister (Interim)",
     "ministry": "Office of the Prime Minister and Council of Ministers",
     "photo": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Sushila_Karki_2023.jpg"
   },
   {
-    "name": "Ek Narayan Aryal",
-    "position": "Chief Secretary",
-    "ministry": "Office of the Prime Minister and Council of Ministers",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Ek_Narayan_Aryal.jpg"
+    "name": "Vacant",
+    "position": "Deputy Prime Minister and Minister of Urban Development",
+    "ministry": "Ministry of Urban Development",
+    "photo": ""
   },
   {
-    "name": "Deepak Khadka",
+    "name": "Vacant",
+    "position": "Minister of Finance",
+    "ministry": "Ministry of Finance",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "position": "Minister of Communications and Information Technology",
+    "ministry": "Ministry of Communications and Information Technology",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "position": "Minister of Home Affairs",
+    "ministry": "Ministry of Home Affairs",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "position": "Minister of Labour, Employment and Social Security",
+    "ministry": "Ministry of Labour, Employment and Social Security",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "position": "Minister of Foreign Affairs",
+    "ministry": "Ministry of Foreign Affairs",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "position": "Minister of Education, Science and Technology",
+    "ministry": "Ministry of Education, Science and Technology",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "position": "Minister of Water Supply",
+    "ministry": "Ministry of Water Supply",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "position": "Minister of Land Management, Cooperatives and Poverty Alleviation",
+    "ministry": "Ministry of Land Management, Cooperatives and Poverty Alleviation",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "position": "Minister of Industry, Commerce and Supplies",
+    "ministry": "Ministry of Industry, Commerce and Supplies",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "position": "Minister of Women, Children and Senior Citizens",
+    "ministry": "Ministry of Women, Children and Senior Citizens",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "position": "Minister of Physical Infrastructure and Transport",
+    "ministry": "Ministry of Physical Infrastructure and Transport",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "position": "Minister of Youth and Sports",
+    "ministry": "Ministry of Youth and Sports",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "position": "Minister of Health and Population",
+    "ministry": "Ministry of Health and Population",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "position": "Minister of Law, Justice and Parliamentary Affairs",
+    "ministry": "Ministry of Law, Justice and Parliamentary Affairs",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "position": "Minister of Culture, Tourism and Civil Aviation",
+    "ministry": "Ministry of Culture, Tourism and Civil Aviation",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "position": "Minister of Agriculture and Livestock Development",
+    "ministry": "Ministry of Agriculture and Livestock Development",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "position": "Minister of Defence",
+    "ministry": "Ministry of Defence",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
     "position": "Minister of Energy, Water Resources and Irrigation",
     "ministry": "Ministry of Energy, Water Resources and Irrigation",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Deepak_Khadka_Nepal.jpg"
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "position": "Minister of Federal Affairs and General Administration",
+    "ministry": "Ministry of Federal Affairs and General Administration",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "position": "Minister of Forests and Environment",
+    "ministry": "Ministry of Forests and Environment",
+    "photo": ""
   }
 ]
