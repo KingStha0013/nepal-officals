@@ -1,7 +1,20 @@
 [
-  { "name": "रामचन्द्र पौडेल", "role": "राष्ट्रपति", "ministry": "राष्ट्रपति कार्यालय" },
-  { "name": "पुष्पकमल दाहाल 'प्रचण्ड'", "role": "प्रधानमन्त्री", "ministry": "प्रधानमन्त्री तथा मन्त्रिपरिषद् कार्यालय" },
-  { "name": "नारायणकाजी श्रेष्ठ", "role": "उपप्रधानमन्त्री", "ministry": "गृह मन्त्रालय" },
-  { "name": "प्रदीप यादव", "role": "शिक्षा मन्त्री", "ministry": "शिक्षा, विज्ञान तथा प्रविधि मन्त्रालय" },
-  { "name": "रघुवीर महत", "role": "वित्त मन्त्री", "ministry": "वित्त मन्त्रालय" }
+  {
+    "name": "Sushila Karki",
+    "position": "Prime Minister (Interim)",
+    "ministry": "Office of the Prime Minister and Council of Ministers",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Sushila_Karki_2023.jpg"
+  },
+  {
+    "name": "Ek Narayan Aryal",
+    "position": "Chief Secretary",
+    "ministry": "Office of the Prime Minister and Council of Ministers",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Ek_Narayan_Aryal.jpg"
+  },
+  {
+    "name": "Deepak Khadka",
+    "position": "Minister of Energy, Water Resources and Irrigation",
+    "ministry": "Ministry of Energy, Water Resources and Irrigation",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Deepak_Khadka_Nepal.jpg"
+  }
 ]
