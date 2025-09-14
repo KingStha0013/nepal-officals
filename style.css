@@ -1,0 +1,83 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  color: #222;
+  transition: background 0.3s, color 0.3s;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  background: #e60000;
+  color: white;
+}
+
+header .flag {
+  width: 40px;
+  height: auto;
+}
+
+.controls {
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+#searchBox {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+}
+
+#toggleTheme {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+main {
+  padding: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  background: white;
+  transition: background 0.3s, color 0.3s;
+}
+
+.card img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #222;
+  color: #fff;
+}
+
+/* Dark theme */
+body.dark {
+  background: #222;
+  color: #f9f9f9;
+}
+
+body.dark .card {
+  background: #333;
+  border-color: #444;
+}
+
+body.dark footer {
+  background: #111;
+}
