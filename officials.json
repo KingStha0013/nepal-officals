@@ -4,21 +4,56 @@
     "position": "President",
     "ministry": "Office of the President",
     "seat": "National",
-    "photo": ""
+    "photo": "https://example.com/photos/ram_chandra_poudel.jpg"
   },
   {
     "name": "Ram Sahaya Yadav",
     "position": "Vice President",
     "ministry": "Office of the Vice President",
     "seat": "National",
-    "photo": ""
+    "photo": "https://example.com/photos/ram_sahaya_yadav.jpg"
   },
   {
     "name": "Sushila Karki",
     "position": "Prime Minister (Interim)",
     "ministry": "Office of the Prime Minister and Council of Ministers",
     "seat": "National",
-    "photo": ""
+    "photo": "https://example.com/photos/sushila_karki.jpg"
+  },
+  {
+    "name": "Kulman Ghising",
+    "position": "Minister of Energy, Water Resources and Irrigation",
+    "ministry": "Ministry of Energy, Water Resources and Irrigation",
+    "seat": "National",
+    "photo": "https://example.com/photos/kulman_ghising.jpg"
+  },
+  {
+    "name": "Rameshwor Khanal",
+    "position": "Minister of Finance",
+    "ministry": "Ministry of Finance",
+    "seat": "National",
+    "photo": "https://example.com/photos/rameshwor_khanal.jpg"
+  },
+  {
+    "name": "Om Prakash Aryal",
+    "position": "Minister of Home Affairs, Law, Justice and Parliamentary Affairs, and Labour, Employment and Social Security",
+    "ministry": "Ministry of Home Affairs, Ministry of Law, Justice and Parliamentary Affairs, Ministry of Labour, Employment and Social Security",
+    "seat": "National",
+    "photo": "https://example.com/photos/om_prakash_aryal.jpg"
+  },
+  {
+    "name": "Kalman Gurung",
+    "position": "Minister of Energy",
+    "ministry": "Ministry of Energy",
+    "seat": "National",
+    "photo": "https://example.com/photos/kalman_gurung.jpg"
+  },
+  {
+    "name": "Bhagwati Neupane",
+    "position": "Minister of Federal Affairs and General Administration",
+    "ministry": "Ministry of Federal Affairs and General Administration",
+    "seat": "National",
+    "photo": "https://example.com/photos/bhagwati_neupane.jpg"
   },
   {
     "name": "Vacant",
@@ -28,30 +63,9 @@
     "photo": ""
   },
   {
-    "name": "Rameshore Khanal",
-    "position": "Minister of Finance",
-    "ministry": "Ministry of Finance",
-    "seat": "",
-    "photo": ""
-  },
-  {
     "name": "Vacant",
     "position": "Minister of Communications and Information Technology",
     "ministry": "Ministry of Communications and Information Technology",
-    "seat": "",
-    "photo": ""
-  },
-  {
-    "name": "Vacant",
-    "position": "Minister of Home Affairs",
-    "ministry": "Ministry of Home Affairs",
-    "seat": "",
-    "photo": ""
-  },
-  {
-    "name": "Vacant",
-    "position": "Minister of Labour, Employment and Social Security",
-    "ministry": "Ministry of Labour, Employment and Social Security",
     "seat": "",
     "photo": ""
   },
@@ -143,20 +157,6 @@
     "name": "Vacant",
     "position": "Minister of Defence",
     "ministry": "Ministry of Defence",
-    "seat": "",
-    "photo": ""
-  },
-  {
-    "name": "Kulman Ghising",
-    "position": "Minister of Energy, Water Resources and Irrigation",
-    "ministry": "Ministry of Energy, Water Resources and Irrigation",
-    "seat": "",
-    "photo": ""
-  },
-  {
-    "name": "Vacant",
-    "position": "Minister of Federal Affairs and General Administration",
-    "ministry": "Ministry of Federal Affairs and General Administration",
     "seat": "",
     "photo": ""
   },
