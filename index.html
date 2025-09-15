@@ -5,82 +5,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nepal Officials</title>
   <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f5f5f5;
-      color: #333;
+      font-family: "Segoe UI", sans-serif;
+      background: #f4f6f8;
+      color: #222;
       transition: background 0.3s, color 0.3s;
     }
+
     header {
+      background: linear-gradient(90deg, #e60000, #a30000);
+      color: #fff;
+      padding: 20px;
       text-align: center;
-      padding: 15px;
-      background: #e50000;
-      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
     header img {
-      width: 60px;
+      width: 50px;
       vertical-align: middle;
+      margin-right: 10px;
     }
     header h1 {
       display: inline-block;
-      margin: 0;
       font-size: 26px;
       vertical-align: middle;
     }
+
     .controls {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 20px;
+      padding: 12px 20px;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      flex-wrap: wrap;
+      gap: 10px;
     }
     .controls input {
-      padding: 8px;
+      flex: 1;
+      padding: 10px;
       font-size: 16px;
-      width: 70%;
-      border-radius: 6px;
       border: 1px solid #ccc;
+      border-radius: 8px;
     }
     .toggle-btn {
       cursor: pointer;
-      background: #333;
-      color: white;
-      padding: 8px 14px;
-      border-radius: 6px;
+      background: #222;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 8px;
       border: none;
+      transition: 0.3s;
     }
+    .toggle-btn:hover { background: #444; }
+
     .officials {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 20px;
       padding: 20px;
     }
+
     .card {
       background: #fff;
-      border-radius: 10px;
-      padding: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: transform 0.2s ease-in-out;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
     }
     .card:hover { transform: translateY(-5px); }
     .card h3 {
-      margin: 10px 0 5px;
       font-size: 20px;
-      color: inherit;
+      margin-bottom: 8px;
+      color: #e60000;
     }
-    .card p { margin: 5px 0; color: #666; }
+    .card p {
+      margin: 5px 0;
+      color: #555;
+    }
+
     footer {
       text-align: center;
       padding: 15px;
-      background: #222;
-      color: white;
       margin-top: 20px;
+      background: #222;
+      color: #fff;
     }
+
     /* Dark mode */
-    body.dark { background: #222; color: #eee; }
-    body.dark .card { background: #333; color: #eee; }
-    body.dark .card p { color: #bbb; }
+    body.dark { background: #1c1c1c; color: #eee; }
+    body.dark header { background: linear-gradient(90deg, #333, #111); }
+    body.dark .controls { background: #222; border-color: #444; }
+    body.dark .controls input { background: #333; border: 1px solid #555; color: #eee; }
+    body.dark .card { background: #2a2a2a; color: #eee; }
+    body.dark .card p { color: #ccc; }
     body.dark .toggle-btn { background: #eee; color: #222; }
   </style>
 </head>
@@ -91,14 +113,14 @@
   </header>
 
   <div class="controls">
-    <input type="text" id="search" placeholder="Search officials...">
+    <input type="text" id="search" placeholder="🔍 Search officials...">
     <button class="toggle-btn" id="themeToggle">🌙 Dark</button>
   </div>
 
   <div class="officials" id="officials"></div>
 
   <footer>
-    © David - All Rights Reserved
+    © David – All Rights Reserved
   </footer>
 
   <script>
@@ -106,29 +128,35 @@
     const container = document.getElementById("officials");
     const searchInput = document.getElementById("search");
     const themeToggle = document.getElementById("themeToggle");
-
     let officialsData = [];
 
+    // Fetch officials
     async function fetchOfficials() {
       try {
-        const response = await fetch(url + "?t=" + Date.now()); // cache busting
-        const data = await response.json();
+        const res = await fetch(url + "?t=" + Date.now()); // cache bust
+        const data = await res.json();
         officialsData = data;
         displayOfficials(data);
       } catch (error) {
-        console.error("Error fetching data:", error);
-        container.innerHTML = "<p>Failed to load data.</p>";
+        container.innerHTML = "<p>⚠️ Failed to load data.</p>";
+        console.error("Fetch error:", error);
       }
     }
 
+    // Display cards
     function displayOfficials(data) {
       container.innerHTML = "";
+      if (!data.length) {
+        container.innerHTML = "<p>No officials found.</p>";
+        return;
+      }
       data.forEach(o => {
         const card = document.createElement("div");
         card.className = "card";
         card.innerHTML = `
           <h3>${o.name}</h3>
-          <p>${o.position}</p>
+          <p><strong>Position:</strong> ${o.position}</p>
+          <p><strong>Ministry:</strong> ${o.ministry}</p>
         `;
         container.appendChild(card);
       });
@@ -138,18 +166,20 @@
     searchInput.addEventListener("input", () => {
       const value = searchInput.value.toLowerCase();
       const filtered = officialsData.filter(o =>
-        o.name.toLowerCase().includes(value) || o.position.toLowerCase().includes(value)
+        o.name.toLowerCase().includes(value) ||
+        o.position.toLowerCase().includes(value) ||
+        o.ministry.toLowerCase().includes(value)
       );
       displayOfficials(filtered);
     });
 
-    // Dark-Light toggle
+    // Dark/Light toggle
     themeToggle.addEventListener("click", () => {
       document.body.classList.toggle("dark");
       themeToggle.textContent = document.body.classList.contains("dark") ? "☀️ Light" : "🌙 Dark";
     });
 
-    // Auto refresh every 40 seconds
+    // Auto refresh every 40s
     setInterval(fetchOfficials, 40000);
 
     // Initial load
