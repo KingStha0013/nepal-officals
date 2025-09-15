@@ -3,65 +3,155 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nepal Officials App</title>
+<title>Nepal Officials | Government App</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{font-family:'Segoe UI',sans-serif; background:#0f0f0f; color:#eee; transition:0.3s;}
+  body{font-family:'Segoe UI',sans-serif; background:#f0f2f5; color:#222; transition:0.3s;}
   :root{
-    --card-bg:#1f1f1f;
-    --accent:#0ff;
-    --bg:#0f0f0f;
-    --text:#eee;
-    --card-hover:#0ff;
-  }
-  [data-theme="light"]{
+    --bg:#f0f2f5;
+    --text:#222;
     --card-bg:#fff;
-    --accent:#1976d2;
-    --bg:#f4f4f4;
-    --text:#111;
-    --card-hover:#1976d2;
+    --accent:#0055aa;
+    --hover:#003366;
+    --header-bg:#003366;
   }
+  [data-theme="dark"]{
+    --bg:#1a1a1a;
+    --text:#eee;
+    --card-bg:#2b2b2b;
+    --accent:#0ff;
+    --hover:#0a7fa0;
+    --header-bg:#0a3d66;
+  }
+  body{background:var(--bg); color:var(--text);}
 
   /* Header */
   header{
-    background:linear-gradient(90deg,#ff0055,#6600ff); color:white; padding:15px; text-align:center; position:sticky; top:0; z-index:1000;
-    box-shadow:0 4px 12px rgba(0,0,0,0.3);
+    position: sticky;
+    top:0;
+    z-index:1000;
+    padding:15px;
+    background:var(--header-bg);
+    color:#fff;
+    text-align:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
   }
-  header img{height:40px; vertical-align:middle; margin-right:10px;}
-  header h1{display:inline-block; font-size:28px; font-weight:bold; vertical-align:middle; text-shadow:0 0 5px var(--accent);}
+  header img{height:50px;}
+  header h1{
+    font-size:24px; 
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
 
   /* Controls */
-  #controls{display:flex; justify-content:space-between; padding:15px; background:#111; flex-wrap:wrap; gap:10px;}
-  #controls input{flex:1; padding:10px; border-radius:8px; border:none; background:#222; color:#fff; font-size:16px; box-shadow:0 0 5px var(--accent);}
-  #controls button{padding:10px 16px; border:none; border-radius:8px; cursor:pointer; background:linear-gradient(90deg,#00f,#0ff); color:#000; font-weight:bold; transition:0.3s; box-shadow:0 0 5px var(--accent);}
-  #controls button:hover{background:linear-gradient(90deg,#0ff,#00f); color:#fff; box-shadow:0 0 15px var(--accent);}
+  #controls{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    padding:15px;
+    background:#e0e0e0;
+  }
+  [data-theme="dark"] #controls{background:#222;}
+  #controls input{
+    flex:1;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    background:#fff;
+    color:#222;
+    font-size:16px;
+  }
+  [data-theme="dark"] #controls input{background:#2b2b2b; color:#eee; border:1px solid #444;}
+
+  /* Small round toggle button */
+  #controls button{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    font-size:18px;
+    border:none;
+    cursor:pointer;
+    background:var(--accent);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:0.3s;
+  }
+  #controls button:hover{background:var(--hover);}
 
   /* Loader */
-  #loader{display:flex;justify-content:center;align-items:center;flex-direction:column; min-height:200px; transition:opacity 0.5s;}
-  .spinner{border:6px solid #222; border-top:6px solid var(--accent); border-radius:50%; width:70px; height:70px; animation:spin 1s linear infinite; margin-bottom:20px;}
+  #loader{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    min-height:200px;
+    transition:opacity 0.5s;
+  }
+  .spinner{
+    border:6px solid #ccc;
+    border-top:6px solid var(--accent);
+    border-radius:50%;
+    width:60px;
+    height:60px;
+    animation:spin 1s linear infinite;
+    margin-bottom:15px;
+  }
   @keyframes spin{100%{transform:rotate(360deg);}}
-  .loader-text{font-size:20px; text-align:center; color:var(--accent); text-shadow:0 0 5px var(--accent);}
+  .loader-text{font-size:18px;text-align:center;color:var(--accent);}
 
-  /* App Grid */
-  #app{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:20px; padding:20px; transition:all 0.3s;}
+  /* App grid */
+  #app{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+    gap:20px;
+    padding:20px;
+  }
 
   /* Card */
   .card{
-    background:var(--card-bg); padding:18px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.5);
-    transition:transform 0.3s, box-shadow 0.3s;
+    background:var(--card-bg);
+    padding:20px;
+    border-radius:10px;
+    border-left:4px solid var(--accent);
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:transform 0.2s, box-shadow 0.2s;
   }
   .card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 6px 25px var(--card-hover);
+    transform:translateY(-5px);
+    box-shadow:0 6px 15px rgba(0,0,0,0.2);
   }
-  .card h3{font-size:20px;color:var(--accent); margin-bottom:5px; text-shadow:0 0 5px var(--accent);}
-  .card p{font-size:14px;color:#aaa; margin:4px 0;}
+  .card h3{font-size:18px;color:var(--accent); margin-bottom:5px;}
+  .card p{font-size:14px; color:#555; margin:3px 0;}
+  [data-theme="dark"] .card p{color:#ccc;}
 
   /* Footer */
-  footer{text-align:center; padding:12px; background:#111; color:#888; font-size:14px; margin-top:10px; box-shadow:0 -2px 5px rgba(0,0,0,0.3);}
+  footer{
+    text-align:center;
+    padding:12px;
+    background:#e0e0e0;
+    font-size:13px;
+    color:#555;
+  }
+  [data-theme="dark"] footer{background:#222; color:#aaa;}
+
+  /* Mobile */
+  @media(max-width:480px){
+    #controls{flex-direction:row;}
+    #controls input{flex:1;}
+    header h1{font-size:20px;}
+  }
 </style>
 </head>
-<body data-theme="dark">
+<body data-theme="light">
 
 <header>
   <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg" alt="Nepal Flag">
@@ -70,7 +160,7 @@
 
 <div id="controls">
   <input type="text" id="search" placeholder="Search officials...">
-  <button id="themeBtn">Toggle Dark/Light</button>
+  <button id="themeBtn">🌙</button>
 </div>
 
 <div id="loader">
@@ -88,7 +178,7 @@ const loader = document.getElementById('loader');
 const searchInput = document.getElementById('search');
 const themeBtn = document.getElementById('themeBtn');
 
-// Load officials data from GitHub
+// Fetch and display officials
 async function loadOfficials(){
   loader.style.opacity='1';
   loader.style.display='flex';
@@ -127,7 +217,13 @@ function displayOfficials(data){
 // Event listeners
 searchInput.addEventListener('input', loadOfficials);
 themeBtn.addEventListener('click', ()=>{
-  document.body.dataset.theme = document.body.dataset.theme==='dark' ? 'light' : 'dark';
+  if(document.body.dataset.theme==='dark'){
+    document.body.dataset.theme='light';
+    themeBtn.textContent='🌙';
+  }else{
+    document.body.dataset.theme='dark';
+    themeBtn.textContent='☀️';
+  }
 });
 
 // Auto-refresh every 40s
