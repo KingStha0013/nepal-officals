@@ -1,180 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nepal Officials - Premium Futuristic</title>
-<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg">
-<style>
-/* Root Colors */
-:root{
-  --bg:#0b0c1c;
-  --card:#101126;
-  --text:#e0e0f0;
-  --accent:#00ffe0;
-  --secondary:#ff5ee0;
-  --shadow:rgba(0,255,224,0.2);
-}
-body{
-  margin:0;font-family:'Poppins',sans-serif;
-  background:var(--bg);color:var(--text);
-  overflow-x:hidden;transition:0.3s all;
-}
-body.light{
-  --bg:#f2f4f7;--card:#fff;--text:#222;--shadow:rgba(0,0,0,0.12);
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nepal Officials Futuristic UI</title>
+  <style>
+    /* Root colors */
+    :root {
+      --bg: #0f0f1e;
+      --text: #ffffff;
+      --card-bg: rgba(255,255,255,0.05);
+      --accent: #ff004f;
+    }
+    [data-theme="light"] {
+      --bg: #f4f4f4;
+      --text: #111;
+      --card-bg: #ffffff;
+      --accent: #ff004f;
+    }
 
-/* Animated Background Waves */
-body::before{
-  content:"";position:fixed;top:0;left:0;width:100%;height:100%;
-  background:radial-gradient(circle at 30% 50%,#ff5ee0 0%,transparent 40%), radial-gradient(circle at 70% 50%,#00ffe0 0%,transparent 40%);
-  background-size:200% 200%;animation:waveAnim 20s linear infinite;opacity:0.1;z-index:-1;
-}
+    body {
+      margin:0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.3s all;
+    }
 
-@keyframes waveAnim{
-  0%{background-position:0 0,0 0;}
-  50%{background-position:100% 0,100% 0;}
-  100%{background-position:0 0,0 0;}
-}
+    header {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:15px;
+      background: linear-gradient(90deg,var(--accent),#e60073);
+      color:white;
+      position: sticky;
+      top:0;
+      z-index:1000;
+    }
+    header img {
+      height:35px;
+      margin-right:10px;
+    }
+    header h1 {
+      font-size:24px;
+      font-weight:bold;
+      letter-spacing:1px;
+      animation: pulse 2s infinite;
+    }
 
-/* Header */
-header{
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  padding:20px;font-weight:700;font-size:1.6em;
-  background: linear-gradient(90deg,#ff5ee0,#00ffe0);color:#fff;
-  position:sticky;top:0;z-index:100;border-bottom-left-radius:15px;border-bottom-right-radius:15px;
-  box-shadow:0 6px 15px var(--shadow);
-}
-header img{height:32px;}
+    @keyframes pulse {
+      0%,100%{opacity:1}
+      50%{opacity:0.7}
+    }
 
-/* Controls */
-#controls{
-  display:flex;gap:10px;padding:15px;margin:10px;
-  background:var(--card);border-radius:15px;box-shadow:0 4px 20px var(--shadow);
-  flex-wrap:wrap;
-}
-#search{flex:1;padding:10px 15px;border-radius:12px;border:none;font-size:14px;outline:none;}
-#toggleTheme{padding:10px 16px;border:none;border-radius:12px;background:var(--accent);color:#000;font-weight:600;cursor:pointer;transition:0.3s;}
-#toggleTheme:hover{opacity:0.85;}
+    .toolbar {
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      padding:12px 20px;
+      background:var(--card-bg);
+      backdrop-filter: blur(8px);
+      margin:10px;
+      border-radius:12px;
+      gap:10px;
+    }
+    .toolbar input {
+      flex:1;
+      padding:10px;
+      border:none;
+      border-radius:8px;
+      font-size:16px;
+      outline:none;
+      background:rgba(255,255,255,0.1);
+      color:var(--text);
+      transition:0.3s;
+    }
+    .toolbar input::placeholder { color: rgba(255,255,255,0.6); }
+    .toolbar button {
+      padding:10px 16px;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      background: var(--accent);
+      color:white;
+      font-weight:bold;
+      transition:0.3s;
+    }
+    .toolbar button:hover { transform: scale(1.05); }
 
-/* Cards Grid */
-.cards{display:grid;grid-template-columns:1fr;gap:20px;padding:15px;transition:all 0.5s;}
-@media(min-width:600px){.cards{grid-template-columns:1fr 1fr;}}
-@media(min-width:900px){.cards{grid-template-columns:1fr 1fr 1fr;}}
+    .officials {
+      display:grid;
+      grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+      gap:20px;
+      padding:20px;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius:15px;
+      padding:18px;
+      box-shadow:0 0 15px rgba(0,0,0,0.3);
+      position: relative;
+      overflow:hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow:0 0 30px var(--accent);
+    }
+    .card::before {
+      content:"";
+      position:absolute;
+      top:-50%;
+      left:-50%;
+      width:200%;
+      height:200%;
+      background: linear-gradient(45deg, #ff004f, #00d4ff, #ff00d0, #ff004f);
+      animation: rotateBG 6s linear infinite;
+      opacity:0.1;
+      z-index:0;
+    }
+    @keyframes rotateBG {
+      0%{transform:rotate(0deg);}
+      100%{transform:rotate(360deg);}
+    }
+    .card h3, .card p { position: relative; z-index:1; }
 
-/* Card */
-.card{
-  background: linear-gradient(145deg,#15172f,#1f203c);
-  border-radius:20px;padding:20px;
-  box-shadow:0 0 15px var(--shadow);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  opacity:0;transform:scale(0.95) translateY(20px);
-  animation:fadeIn 0.5s forwards;
-  cursor:pointer;
-  position:relative;
-  overflow:hidden;
-}
-.card::after{
-  content:"";position:absolute;top:0;left:-100%;width:200%;height:100%;
-  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.1),transparent);
-  transform:skewX(-20deg);transition:all 0.5s;
-}
-.card:hover::after{left:100%;transition:all 0.7s;}
-.card:hover{
-  transform:scale(1.05) translateY(-5px);
-  box-shadow:0 0 25px var(--accent),0 0 25px var(--secondary);
-}
-.card h3{margin:0;color:var(--accent);}
-.card p{margin:5px 0;font-size:0.95em;line-height:1.3;}
-.card .photo{width:100%;height:180px;border-radius:15px;object-fit:cover;margin-bottom:10px;}
-
-/* Floating Scroll-to-Top Button */
-#topBtn{
-  position:fixed;bottom:20px;right:20px;
-  background:var(--accent);color:#000;padding:12px 18px;
-  border-radius:50px;cursor:pointer;font-weight:700;
-  box-shadow:0 0 20px var(--shadow);
-  transition:0.3s all;z-index:200;
-}
-#topBtn:hover{transform:scale(1.1);box-shadow:0 0 30px var(--accent);}
-
-/* Animations */
-@keyframes fadeIn{to{opacity:1;transform:scale(1) translateY(0);}}
-
-footer{text-align:center;padding:15px;background:var(--card);border-top-left-radius:15px;border-top-right-radius:15px;box-shadow:0 -4px 12px var(--shadow);font-size:13px;transition:all 0.3s;}
-</style>
+    footer {
+      text-align:center;
+      padding:12px;
+      background:#111;
+      color:#aaa;
+      font-size:14px;
+      margin-top:20px;
+    }
+  </style>
 </head>
-<body>
+<body data-theme="dark">
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg" alt="Nepal Flag">
+    <h1>Nepal Officials</h1>
+  </header>
 
-<header>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg" alt="Nepal Flag">
-  Nepal Officials
-</header>
+  <div class="toolbar">
+    <input type="text" id="search" placeholder="Search officials...">
+    <button id="themeToggle">🌙</button>
+  </div>
 
-<div id="controls">
-  <input type="text" id="search" placeholder="Search officials...">
-  <button id="toggleTheme">🌙</button>
-</div>
+  <div id="officials" class="officials"></div>
 
-<div class="cards" id="cards">
-  <p style="text-align:center;">Loading officials...</p>
-</div>
+  <footer>© David 2025 | Auto-refresh every 40s</footer>
 
-<button id="topBtn" onclick="scrollTop()">↑ Top</button>
+  <script>
+    const officialsContainer = document.getElementById("officials");
+    const searchBox = document.getElementById("search");
+    const themeBtn = document.getElementById("themeToggle");
 
-<footer>© David | Auto-update every 40s</footer>
+    async function fetchOfficials() {
+      try {
+        const res = await fetch("officials.json?t=" + Date.now());
+        const data = await res.json();
+        displayOfficials(data);
+      } catch(err) {
+        officialsContainer.innerHTML = "<p>❌ Failed to load officials.json</p>";
+        console.error(err);
+      }
+    }
 
-<script>
-const cardsContainer=document.getElementById("cards");
-const toggleTheme=document.getElementById("toggleTheme");
-const searchInput=document.getElementById("search");
+    function displayOfficials(data) {
+      const filter = searchBox.value.toLowerCase();
+      officialsContainer.innerHTML = "";
+      data.filter(o => o.name.toLowerCase().includes(filter) || o.position.toLowerCase().includes(filter))
+          .forEach(o => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <h3>${o.name}</h3>
+          <p><b>Position:</b> ${o.position}</p>
+          <p><b>Ministry:</b> ${o.ministry}</p>
+        `;
+        officialsContainer.appendChild(card);
+      });
+    }
 
-async function loadOfficials(){
-  try{
-    const res=await fetch("https://raw.githubusercontent.com/KingStha0013/nepal-officals/main/officials.json?ts="+Date.now());
-    const data=await res.json();
-    displayOfficials(data);
-  }catch(err){
-    cardsContainer.innerHTML="<p style='color:red;text-align:center;'>❌ Failed to load officials.</p>";
-    console.error(err);
-  }
-}
+    searchBox.addEventListener("input", fetchOfficials);
 
-function displayOfficials(list){
-  cardsContainer.innerHTML="";
-  list.forEach((o,i)=>{
-    const card=document.createElement("div");
-    card.className="card";
-    card.style.animationDelay=`${i*0.05}s`;
-    card.innerHTML=`${o.photo?'<img src="'+o.photo+'" class="photo">':''}
-                    <h3>${o.name}</h3>
-                    <p><strong>Position:</strong> ${o.position}</p>
-                    <p><strong>Ministry:</strong> ${o.ministry}</p>`;
-    cardsContainer.appendChild(card);
-  });
-}
+    themeBtn.addEventListener("click", () => {
+      if(document.body.dataset.theme === "dark") {
+        document.body.dataset.theme = "light";
+        themeBtn.textContent = "🌙";
+      } else {
+        document.body.dataset.theme = "dark";
+        themeBtn.textContent = "☀️";
+      }
+    });
 
-// Search filter
-searchInput.addEventListener("input",e=>{
-  const q=e.target.value.toLowerCase();
-  document.querySelectorAll(".card").forEach(c=>{
-    c.style.display=c.textContent.toLowerCase().includes(q)?"":"none";
-  });
-});
-
-// Dark/Light toggle
-toggleTheme.addEventListener("click",()=>{
-  document.body.classList.toggle("light");
-  toggleTheme.textContent=document.body.classList.contains("light")?"🌙":"☀️";
-});
-
-// Scroll top
-function scrollTop(){window.scrollTo({top:0,behavior:'smooth'});}
-
-// Load + auto-refresh
-loadOfficials();
-setInterval(loadOfficials,40000);
-</script>
-
+    fetchOfficials();
+    setInterval(fetchOfficials, 40000); // auto refresh 40s
+  </script>
 </body>
 </html>
