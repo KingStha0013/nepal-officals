@@ -5,151 +5,85 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nepal Officials</title>
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{
-    font-family:'Segoe UI',sans-serif;
-    background:#0f0f0f;
-    color:#eee;
-    transition:0.3s;
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background: #111;
+    color: #fff;
   }
-  :root{
-    --card-bg:#1f1f1f;
-    --accent:#0ff;
-    --bg:#0f0f0f;
-    --text:#eee;
+  header {
+    background: linear-gradient(90deg, #00ffea, #0066ff);
+    padding: 20px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
   }
-  [data-theme="light"]{
-    --card-bg:#fff;
-    --accent:#1976d2;
-    --bg:#f4f4f4;
-    --text:#111;
+  .container {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
   }
-  header{
-    background:linear-gradient(90deg,#ff0055,#6600ff);
-    color:white;
-    padding:15px;
-    text-align:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    box-shadow:0 4px 12px rgba(0,0,0,0.3);
+  .card {
+    background: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,255,234,0.2);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
   }
-  header img{height:40px;vertical-align:middle;margin-right:10px;}
-  header h1{display:inline-block;font-size:28px;font-weight:bold;vertical-align: middle;}
-  #controls{
-    display:flex;justify-content:space-between;padding:15px;background:#111;flex-wrap:wrap;gap:10px;
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(0,255,234,0.5);
   }
-  #controls input{
-    flex:1;padding:10px;border-radius:8px;border:none;background:#222;color:#fff;font-size:16px;
+  .card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
   }
-  #controls button{
-    padding:10px 16px;border:none;border-radius:8px;cursor:pointer;
-    background:linear-gradient(90deg,#00f,#0ff); color:#000; font-weight:bold; transition:0.3s;
+  .card h2 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
   }
-  #controls button:hover{
-    background:linear-gradient(90deg,#0ff,#00f); color:#fff;
-  }
-  #loader{
-    display:flex;justify-content:center;align-items:center;min-height:200px;
-  }
-  .spinner{
-    border:6px solid #222;
-    border-top:6px solid var(--accent);
-    border-radius:50%;
-    width:60px;height:60px;
-    animation:spin 1s linear infinite;
-    margin-bottom:15px;
-  }
-  @keyframes spin{100%{transform:rotate(360deg);}}
-  .loader-text{
-    font-size:18px;text-align:center;color:var(--accent);
-  }
-  #app{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-    gap:20px;
-    padding:20px;
-  }
-  .card{
-    background:var(--card-bg);
-    padding:18px;
-    border-radius:12px;
-    box-shadow:0 4px 20px rgba(0,0,0,0.5);
-    transition:transform 0.2s, box-shadow 0.2s;
-  }
-  .card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 6px 25px var(--accent);
-  }
-  .card h3{font-size:20px;color:var(--accent);margin-bottom:5px;}
-  .card p{font-size:14px;color:#aaa;margin:4px 0;}
-  footer{
-    text-align:center;padding:12px;background:#111;color:#888;font-size:14px;margin-top:10px;
+  .card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #aaa;
   }
 </style>
 </head>
-<body data-theme="dark">
-  <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg" alt="Nepal Flag">
-    <h1>Nepal Officials</h1>
-  </header>
+<body>
+  <header>Nepal Officials</header>
+  <div class="container" id="officialsContainer"></div>
 
-  <div id="controls">
-    <input type="text" id="search" placeholder="Search officials...">
-    <button id="themeBtn">Toggle Dark/Light</button>
-  </div>
+<script>
+async function loadOfficials() {
+  const url = 'https://raw.githubusercontent.com/KingStha0013/nepal-officals/main/officials.json';
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
 
-  <div id="loader"><div class="spinner"></div><div class="loader-text">Loading Officials...</div></div>
-  <div id="app" style="display:none;"></div>
+    const container = document.getElementById('officialsContainer');
+    container.innerHTML = ''; // clear container
 
-  <footer>Auto-refresh every 40s | David ©️</footer>
-
-  <script>
-    const app = document.getElementById('app');
-    const loader = document.getElementById('loader');
-    const searchInput = document.getElementById('search');
-    const themeBtn = document.getElementById('themeBtn');
-
-    async function loadOfficials(){
-      loader.style.display='flex';
-      app.style.display='none';
-      try{
-        const res = await fetch('officials.json?t='+Date.now());
-        const data = await res.json();
-        displayOfficials(data);
-        loader.style.display='none';
-        app.style.display='grid';
-      }catch(err){
-        loader.innerHTML='❌ Failed to load data';
-        console.error(err);
-      }
-    }
-
-    function displayOfficials(data){
-      const filter = searchInput.value.toLowerCase();
-      app.innerHTML='';
-      const filtered = data.filter(o=>o.name.toLowerCase().includes(filter) || o.position.toLowerCase().includes(filter));
-      if(filtered.length===0){app.innerHTML='<p>No officials found.</p>';return;}
-      filtered.forEach(o=>{
-        const card=document.createElement('div');
-        card.className='card';
-        card.innerHTML=`
-          <h3>${o.name}</h3>
-          <p><b>Position:</b> ${o.position}</p>
-          <p><b>Ministry:</b> ${o.ministry}</p>
-        `;
-        app.appendChild(card);
-      });
-    }
-
-    searchInput.addEventListener('input', loadOfficials);
-    themeBtn.addEventListener('click',()=>{
-      if(document.body.dataset.theme==='dark') document.body.dataset.theme='light';
-      else document.body.dataset.theme='dark';
+    data.forEach(off => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${off.photo}" alt="${off.name}">
+        <h2>${off.name}</h2>
+        <p>${off.position}</p>
+      `;
+      container.appendChild(card);
     });
+  } catch (err) {
+    console.error('Error loading officials:', err);
+    document.getElementById('officialsContainer').innerHTML = '<p>Error loading data.</p>';
+  }
+}
 
-    setInterval(loadOfficials,40000); // auto-refresh
-    loadOfficials(); // initial load
-  </script>
+loadOfficials();
+</script>
 </body>
 </html>
