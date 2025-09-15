@@ -1,134 +1,170 @@
 [
   {
-    "name": "Susila Karki",
+    "name": "Ram Chandra Poudel",
+    "position": "President",
+    "ministry": "Office of the President",
+    "seat": "National",
+    "photo": ""
+  },
+  {
+    "name": "Ram Sahaya Yadav",
+    "position": "Vice President",
+    "ministry": "Office of the Vice President",
+    "seat": "National",
+    "photo": ""
+  },
+  {
+    "name": "Sushila Karki",
     "position": "Prime Minister (Interim)",
     "ministry": "Office of the Prime Minister and Council of Ministers",
-    "photo": "https://www.google.com/search?client=ms-android-xiaomi-terr1-rso2&sca_esv=f79ae1808813365b&sxsrf=AE3TifN4uMwim85tyb4VSo7bTxevTRJYDw:1757854949951&q=Sushila+Karki&stick=H4sIAAAAAAAAAONgluLVT9c3NEzOrSxLz7DIkeLSz9U3yLIsNCwvlOIEsY0szQqNIMIm6YUmZilQtnFRsmGhEqruKI681ILEHIWC3FeMAn6p5cUK-gq-qXklmfl5qSmLWHmDS4szMnMSFbwTi7IzARVf4ZJ8AAAA&sa=X&ved=2ahUKEwjsyO7-p9iPAxU3d2wGHeEkGZQQ6tEMegQIPBAN&biw=360&bih=753&dpr=2"
+    "seat": "National",
+    "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Deputy Prime Minister and Minister of Urban Development",
     "ministry": "Ministry of Urban Development",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Finance",
     "ministry": "Ministry of Finance",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Communications and Information Technology",
     "ministry": "Ministry of Communications and Information Technology",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Home Affairs",
     "ministry": "Ministry of Home Affairs",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Labour, Employment and Social Security",
     "ministry": "Ministry of Labour, Employment and Social Security",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Foreign Affairs",
     "ministry": "Ministry of Foreign Affairs",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Education, Science and Technology",
     "ministry": "Ministry of Education, Science and Technology",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Water Supply",
     "ministry": "Ministry of Water Supply",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Land Management, Cooperatives and Poverty Alleviation",
     "ministry": "Ministry of Land Management, Cooperatives and Poverty Alleviation",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Industry, Commerce and Supplies",
     "ministry": "Ministry of Industry, Commerce and Supplies",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Women, Children and Senior Citizens",
     "ministry": "Ministry of Women, Children and Senior Citizens",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Physical Infrastructure and Transport",
     "ministry": "Ministry of Physical Infrastructure and Transport",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Youth and Sports",
     "ministry": "Ministry of Youth and Sports",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Health and Population",
     "ministry": "Ministry of Health and Population",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Law, Justice and Parliamentary Affairs",
     "ministry": "Ministry of Law, Justice and Parliamentary Affairs",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Culture, Tourism and Civil Aviation",
     "ministry": "Ministry of Culture, Tourism and Civil Aviation",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Agriculture and Livestock Development",
     "ministry": "Ministry of Agriculture and Livestock Development",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Defence",
     "ministry": "Ministry of Defence",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Energy, Water Resources and Irrigation",
     "ministry": "Ministry of Energy, Water Resources and Irrigation",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Federal Affairs and General Administration",
     "ministry": "Ministry of Federal Affairs and General Administration",
+    "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
     "position": "Minister of Forests and Environment",
     "ministry": "Ministry of Forests and Environment",
+    "seat": "",
     "photo": ""
   }
 ]
