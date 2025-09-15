@@ -1,239 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nepal Officials Futuristic UI</title>
-<style>
-:root {
-  --bg: #0f0f1e;
-  --card-bg: rgba(255,255,255,0.05);
-  --text: #ffffff;
-  --subtext: #aaa;
-  --accent: #ff004f;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nepal Officials</title>
+  <style>
+    /* Reset & base */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #eee;
+      transition: background 0.3s, color 0.3s;
+    }
 
-[data-theme="light"] {
-  --bg: #f4f6f8;
-  --card-bg: #fff;
-  --text: #222;
-  --subtext: #555;
-  --accent: #0072e5;
-}
+    :root {
+      --card-bg: #1f1f1f;
+      --accent: #0ff;
+      --bg: #0f0f0f;
+      --text: #eee;
+    }
 
-body {
-  margin:0;
-  font-family:'Segoe UI',sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  transition: 0.3s all;
-}
+    [data-theme="light"] {
+      --card-bg: #fff;
+      --accent: #1976d2;
+      --bg: #f4f4f4;
+      --text: #111;
+    }
 
-header {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:15px;
-  background: linear-gradient(90deg,var(--accent),#e60073);
-  color:white;
-  position: sticky;
-  top:0;
-  z-index:1000;
-}
+    header {
+      background: linear-gradient(90deg, #ff0055, #6600ff);
+      color: white;
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top:0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    header img { height:40px; vertical-align: middle; margin-right:10px; }
+    header h1 { display:inline-block; font-size:28px; font-weight:bold; vertical-align: middle; }
 
-header img {
-  height:35px;
-  margin-right:10px;
-}
+    #controls {
+      display:flex; justify-content: space-between; padding:15px; background:#111; flex-wrap:wrap; gap:10px;
+    }
+    #controls input {
+      flex:1; padding:10px; border-radius:8px; border:none; background:#222; color:#fff; font-size:16px;
+    }
+    #controls button {
+      padding:10px 16px; border:none; border-radius:8px; cursor:pointer; background:linear-gradient(90deg,#00f,#0ff); color:#000; font-weight:bold;
+      transition:0.3s;
+    }
+    #controls button:hover { background:linear-gradient(90deg,#0ff,#00f); color:#fff; }
 
-header h1 {
-  font-size:24px;
-  font-weight:bold;
-  letter-spacing:1px;
-  animation: pulse 2s infinite;
-}
+    #loader {
+      display: flex;
+      justify-content:center;
+      align-items:center;
+      min-height:200px;
+    }
+    .spinner {
+      border: 5px solid #222;
+      border-top: 5px solid var(--accent);
+      border-radius:50%;
+      width:40px;
+      height:40px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
 
-@keyframes pulse {
-  0%,100%{opacity:1}
-  50%{opacity:0.7}
-}
+    #app {
+      display:grid;
+      grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
+      gap:20px;
+      padding:20px;
+    }
 
-.toolbar {
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  padding:12px 20px;
-  background:var(--card-bg);
-  backdrop-filter: blur(8px);
-  margin:10px;
-  border-radius:12px;
-  gap:10px;
-}
+    .card {
+      background: var(--card-bg);
+      padding:18px;
+      border-radius:12px;
+      box-shadow:0 4px 20px rgba(0,0,0,0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { transform:translateY(-8px); box-shadow:0 6px 25px var(--accent); }
+    .card h3 { font-size:20px; color:var(--accent); margin-bottom:5px; }
+    .card p { font-size:14px; color:#aaa; margin:4px 0; }
 
-.toolbar input {
-  flex:1;
-  padding:10px;
-  border:none;
-  border-radius:8px;
-  font-size:16px;
-  outline:none;
-  background:rgba(255,255,255,0.1);
-  color:var(--text);
-  transition:0.3s;
-}
-
-.toolbar input::placeholder { color: rgba(255,255,255,0.6); }
-
-.toolbar button {
-  padding:10px 16px;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  background: var(--accent);
-  color:white;
-  font-weight:bold;
-  transition:0.3s;
-}
-
-.toolbar button:hover { transform: scale(1.05); }
-
-.officials {
-  display:grid;
-  grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
-  gap:20px;
-  padding:20px;
-}
-
-.card {
-  background: var(--card-bg);
-  border-radius:15px;
-  padding:18px;
-  box-shadow:0 0 15px rgba(0,0,0,0.3);
-  position: relative;
-  overflow:hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-  text-align:center;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow:0 0 30px var(--accent);
-}
-
-.card img {
-  width:100%;
-  height:150px;
-  object-fit:cover;
-  border-radius:10px;
-  margin-bottom:10px;
-  background:#333;
-}
-
-.card h3, .card p { margin:5px 0; }
-
-.loading {
-  text-align:center;
-  padding:40px;
-  font-size:18px;
-  color:var(--subtext);
-}
-
-footer {
-  text-align:center;
-  padding:12px;
-  background:#111;
-  color:#aaa;
-  font-size:14px;
-  margin-top:20px;
-}
-</style>
+    footer { text-align:center; padding:12px; background:#111; color:#888; font-size:14px; margin-top:10px; }
+  </style>
 </head>
-<body data-theme="dark">
-<header>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg" alt="Nepal Flag">
-  <h1>Nepal Officials</h1>
-</header>
+<body>
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg" alt="Nepal Flag">
+    <h1>Nepal Officials</h1>
+  </header>
 
-<div class="toolbar">
-  <input type="text" id="search" placeholder="Search officials...">
-  <button id="themeToggle">🌙</button>
-</div>
+  <div id="controls">
+    <input type="text" id="search" placeholder="Search officials...">
+    <button id="themeBtn">Toggle Dark/Light</button>
+  </div>
 
-<div id="officials" class="officials"></div>
-<div id="loading" class="loading">Loading officials...</div>
+  <div id="loader"><div class="spinner"></div></div>
+  <div id="app" style="display:none;"></div>
 
-<footer>David ©️ 2025 | Auto-refresh every 40s</footer>
+  <footer>Auto-refresh every 40s | David ©️</footer>
 
-<script>
-const container = document.getElementById("officials");
-const loading = document.getElementById("loading");
-const searchInput = document.getElementById("search");
-const toggleBtn = document.getElementById("themeToggle");
-let officialsData = [];
+  <script>
+    const app = document.getElementById('app');
+    const loader = document.getElementById('loader');
+    const searchInput = document.getElementById('search');
+    const themeBtn = document.getElementById('themeBtn');
 
-async function fetchOfficials() {
-  try {
-    const res = await fetch("officials.json?t=" + Date.now(), { cache: "no-store" });
-    officialsData = await res.json();
-    loading.style.display = "none";
-    filterAndRender();
-  } catch(err) {
-    console.error(err);
-    loading.textContent = "❌ Failed to load officials.json";
-  }
-}
+    async function loadOfficials() {
+      loader.style.display = 'flex';
+      app.style.display = 'none';
+      try {
+        const res = await fetch('officials.json?t=' + Date.now());
+        const data = await res.json();
+        displayOfficials(data);
+        loader.style.display = 'none';
+        app.style.display = 'grid';
+      } catch (err) {
+        loader.innerHTML = '❌ Failed to load data';
+        console.error(err);
+      }
+    }
 
-function filterAndRender() {
-  const query = searchInput.value.toLowerCase();
-  const filtered = officialsData.filter(o =>
-    o.name.toLowerCase().includes(query) || o.position.toLowerCase().includes(query)
-  );
-  renderOfficials(filtered);
-}
+    function displayOfficials(data) {
+      const filter = searchInput.value.toLowerCase();
+      app.innerHTML = '';
+      const filtered = data.filter(o => o.name.toLowerCase().includes(filter) || o.position.toLowerCase().includes(filter));
+      if(filtered.length===0) {
+        app.innerHTML = '<p>No officials found.</p>';
+        return;
+      }
+      filtered.forEach(o=>{
+        const card = document.createElement('div');
+        card.className='card';
+        card.innerHTML = `
+          <h3>${o.name}</h3>
+          <p><b>Position:</b> ${o.position}</p>
+          <p><b>Ministry:</b> ${o.ministry}</p>
+        `;
+        app.appendChild(card);
+      });
+    }
 
-function renderOfficials(data) {
-  container.innerHTML = "";
-  if(data.length === 0){
-    container.innerHTML = "<p style='text-align:center; color: var(--subtext)'>No officials found.</p>";
-    return;
-  }
-  data.forEach(o => {
-    const card = document.createElement("div");
-    card.className = "card";
+    searchInput.addEventListener('input', loadOfficials);
+    themeBtn.addEventListener('click', ()=> {
+      if(document.body.dataset.theme==='light') document.body.dataset.theme='';
+      else document.body.dataset.theme='light';
+    });
 
-    const img = document.createElement("img");
-    img.src = o.photo && o.photo.trim() !== "" ? o.photo : "https://via.placeholder.com/400x150?text=No+Photo";
-    img.alt = o.name;
-    img.onerror = () => { img.src = "https://via.placeholder.com/400x150?text=No+Photo"; };
+    // Auto refresh every 40s
+    setInterval(loadOfficials, 40000);
 
-    const name = document.createElement("h3");
-    name.textContent = o.name;
-
-    const position = document.createElement("p");
-    position.innerHTML = `<b>Position:</b> ${o.position}`;
-
-    const ministry = document.createElement("p");
-    ministry.innerHTML = `<b>Ministry:</b> ${o.ministry}`;
-
-    card.appendChild(img);
-    card.appendChild(name);
-    card.appendChild(position);
-    card.appendChild(ministry);
-
-    container.appendChild(card);
-  });
-}
-
-searchInput.addEventListener("input", filterAndRender);
-
-toggleBtn.addEventListener("click", () => {
-  const current = document.body.dataset.theme;
-  document.body.dataset.theme = current==="light"?"dark":"light";
-  toggleBtn.textContent = current==="light"?"🌙":"☀️";
-});
-
-fetchOfficials();
-setInterval(fetchOfficials, 40000);
-</script>
+    // Initial load
+    loadOfficials();
+  </script>
 </body>
 </html>
