@@ -6,17 +6,19 @@
 <title>Nepal Officials</title>
 <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg">
 <style>
+  /* Root Colors */
   :root {
-    --primary-gradient: linear-gradient(90deg,#ff416c,#ff4b2b);
-    --accent: #ffd700;
-    --bg: #f5f5f5;
+    --primary: #6a11cb;
+    --secondary: #2575fc;
+    --accent: #fbc02d;
+    --bg: #f0f2f5;
     --text: #222;
     --card: #fff;
-    --card-shadow: rgba(0,0,0,0.1);
+    --shadow: rgba(0,0,0,0.1);
   }
   body {
     margin:0;
-    font-family:'Roboto',sans-serif;
+    font-family: 'Roboto', sans-serif;
     background: var(--bg);
     color: var(--text);
     transition: all 0.3s ease;
@@ -25,7 +27,7 @@
     --bg:#121212;
     --text:#eee;
     --card:#1e1e1e;
-    --card-shadow:rgba(255,255,255,0.1);
+    --shadow:rgba(255,255,255,0.05);
   }
 
   /* Header */
@@ -33,17 +35,17 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    background: var(--primary-gradient);
+    padding:18px;
+    background: linear-gradient(90deg,var(--primary),var(--secondary));
     color:#fff;
-    padding:15px;
     font-weight:bold;
     font-size:1.4em;
-    box-shadow:0 4px 12px rgba(0,0,0,0.3);
     position: sticky;
     top:0;
-    z-index: 100;
+    z-index:100;
+    box-shadow:0 4px 12px rgba(0,0,0,0.3);
   }
-  header img {height:32px;margin-right:10px;}
+  header img {height:32px;margin-right:12px;}
 
   /* Controls */
   #controls {
@@ -52,27 +54,29 @@
     padding:12px;
     background: var(--card);
     position: sticky;
-    top:60px;
+    top:72px;
     z-index:90;
-    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+    box-shadow:0 2px 8px var(--shadow);
+    border-radius:12px;
+    margin:10px;
   }
   #search {
     flex:1;
-    padding:10px;
+    padding:10px 14px;
     border-radius:12px;
     border:1px solid #ccc;
     font-size:14px;
   }
   #toggleTheme {
-    background: var(--accent);
+    padding:10px 16px;
     border:none;
     border-radius:12px;
-    padding:10px 16px;
-    cursor:pointer;
+    background: var(--accent);
     font-weight:bold;
+    cursor:pointer;
   }
 
-  /* Cards */
+  /* Cards Grid */
   .cards {
     display:grid;
     grid-template-columns:1fr;
@@ -82,33 +86,34 @@
   @media(min-width:600px){.cards{grid-template-columns:1fr 1fr;}}
   @media(min-width:900px){.cards{grid-template-columns:1fr 1fr 1fr;}}
 
+  /* Card Style */
   .card {
     background: var(--card);
     border-radius:16px;
     padding:16px;
-    box-shadow:0 6px 16px var(--card-shadow);
+    box-shadow:0 8px 20px var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     opacity:0;
-    transform: translateY(15px);
-    animation: fadeInUp 0.5s forwards;
+    transform: translateY(20px);
+    animation: fadeUp 0.5s forwards;
   }
   .card:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow:0 12px 24px var(--card-shadow);
+    box-shadow:0 12px 30px var(--shadow);
   }
-  .card h3{margin:0;color:var(--primary-gradient);font-size:1.1em;}
+  .card h3{margin:0;color:var(--primary);}
   .card p{margin:5px 0;font-size:0.95em;}
-
-  @keyframes fadeInUp {
-    to {opacity:1; transform:translateY(0);}
+  
+  @keyframes fadeUp{
+    to{opacity:1; transform:translateY(0);}
   }
 
   footer {
     text-align:center;
     padding:12px;
-    font-size:13px;
     background: var(--card);
-    box-shadow:0 -2px 6px rgba(0,0,0,0.05);
+    box-shadow:0 -2px 6px var(--shadow);
+    font-size:13px;
   }
 </style>
 </head>
@@ -135,7 +140,7 @@ const cardsContainer = document.getElementById("cards");
 const toggleTheme = document.getElementById("toggleTheme");
 const searchInput = document.getElementById("search");
 
-// Load officials from GitHub JSON
+// Load officials
 async function loadOfficials(){
   try{
     const res = await fetch("https://raw.githubusercontent.com/KingStha0013/nepal-officals/main/officials.json?ts="+Date.now());
@@ -147,12 +152,13 @@ async function loadOfficials(){
   }
 }
 
+// Display officials
 function displayOfficials(list){
   cardsContainer.innerHTML="";
   list.forEach((o,i)=>{
     const card = document.createElement("div");
     card.className="card";
-    card.style.animationDelay = `${i*0.05}s`; // stagger animation
+    card.style.animationDelay = `${i*0.05}s`;
     card.innerHTML=`<h3>${o.name}</h3>
                     <p><strong>Position:</strong> ${o.position}</p>
                     <p><strong>Ministry:</strong> ${o.ministry}</p>`;
@@ -160,7 +166,7 @@ function displayOfficials(list){
   });
 }
 
-// Search filter
+// Search
 searchInput.addEventListener("input", e=>{
   const q=e.target.value.toLowerCase();
   document.querySelectorAll(".card").forEach(c=>{
@@ -174,7 +180,7 @@ toggleTheme.addEventListener("click",()=>{
   toggleTheme.textContent=document.body.classList.contains("dark")?"☀️":"🌙";
 });
 
-// Auto update
+// Auto-update every 40s
 loadOfficials();
 setInterval(loadOfficials,40000);
 </script>
