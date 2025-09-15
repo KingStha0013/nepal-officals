@@ -3,42 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nepal Officials - Ultra Modern</title>
+<title>Nepal Officials - Futuristic UI</title>
 <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg">
 <style>
 :root{
-  --bg:#0c0c1a;
-  --card:#111226;
-  --text:#f0f0f5;
-  --accent:#00fff7;
-  --secondary:#ff5eff;
-  --shadow:rgba(0,255,234,0.2);
+  --bg:#0d0e1a;
+  --card:#15172f;
+  --text:#e0e0f0;
+  --accent:#00ffe0;
+  --secondary:#ff5ee0;
+  --shadow:rgba(0,255,224,0.2);
 }
 body{
   margin:0;font-family:'Poppins',sans-serif;
   background:var(--bg);color:var(--text);
-  overflow-x:hidden;
   transition:0.3s all;
 }
 body.light{
-  --bg:#f0f3f7;--card:#fff;--text:#222;--shadow:rgba(0,0,0,0.12);
+  --bg:#f2f4f7;--card:#fff;--text:#222;--shadow:rgba(0,0,0,0.12);
 }
 
 /* Header */
 header{
   display:flex;align-items:center;justify-content:center;
   gap:10px;padding:20px;font-weight:700;font-size:1.6em;
-  background: linear-gradient(90deg,#ff5eff,#00fff7);color:#fff;
-  position:sticky;top:0;z-index:100;
+  background: linear-gradient(90deg,#ff5ee0,#00ffe0);
+  color:#fff;position:sticky;top:0;z-index:100;
   border-bottom-left-radius:15px;border-bottom-right-radius:15px;
-  box-shadow:0 6px 20px var(--shadow);
+  box-shadow:0 6px 15px var(--shadow);
 }
 header img{height:32px;}
 
 /* Controls */
 #controls{
   display:flex;gap:10px;padding:15px;margin:10px;
-  background:var(--card);border-radius:15px;box-shadow:0 4px 20px var(--shadow);
+  background:var(--card);border-radius:15px;box-shadow:0 4px 15px var(--shadow);
   flex-wrap:wrap;
 }
 #search{flex:1;padding:10px 15px;border-radius:12px;border:none;font-size:14px;outline:none;}
@@ -52,24 +51,23 @@ header img{height:32px;}
 
 /* Card */
 .card{
-  background: linear-gradient(135deg,#ff5eff,#00fff7);
-  border-radius:25px;padding:20px;
-  box-shadow:0 0 25px var(--shadow);
+  background: linear-gradient(135deg,#15172f,#1f203c);
+  border-radius:20px;padding:20px;
+  box-shadow:0 0 15px var(--shadow);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
   opacity:0;transform:scale(0.95) translateY(20px);
   animation:fadeIn 0.5s forwards;
-  color:#000;
   cursor:pointer;
 }
 .card:hover{
   transform:scale(1.05) translateY(-5px);
-  box-shadow:0 0 35px #00fff7,0 0 35px #ff5eff;
+  box-shadow:0 0 25px var(--accent),0 0 25px var(--secondary);
 }
-.card h3{margin:0;}
+.card h3{margin:0;color:var(--accent);}
 .card p{margin:5px 0;font-size:0.95em;line-height:1.3;}
 .card .photo{width:100%;height:180px;border-radius:15px;object-fit:cover;margin-bottom:10px;}
 
-/* Floating Button */
+/* Floating Scroll-to-Top Button */
 #topBtn{
   position:fixed;bottom:20px;right:20px;
   background:var(--accent);color:#000;padding:12px 18px;
@@ -150,7 +148,7 @@ toggleTheme.addEventListener("click",()=>{
   toggleTheme.textContent=document.body.classList.contains("light")?"🌙":"☀️";
 });
 
-// Scroll top button
+// Scroll top
 function scrollTop(){window.scrollTo({top:0,behavior:'smooth'});}
 
 // Load + auto-refresh
