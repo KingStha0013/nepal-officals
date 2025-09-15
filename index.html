@@ -5,185 +5,142 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nepal Officials</title>
   <style>
-    /* Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background: #f4f6f8;
-      color: #222;
-      transition: background 0.3s, color 0.3s;
+    :root {
+      --primary: #1976d2;
+      --bg: #f5f5f5;
+      --text: #222;
+      --card: #fff;
     }
-
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    body.dark {
+      --bg: #121212;
+      --text: #eee;
+      --card: #1e1e1e;
+    }
     header {
-      background: linear-gradient(90deg, #e60000, #a30000);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
       color: #fff;
-      padding: 20px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      padding: 12px;
+      font-weight: bold;
+      font-size: 1.2em;
     }
     header img {
-      width: 50px;
-      vertical-align: middle;
+      height: 28px;
       margin-right: 10px;
     }
-    header h1 {
-      display: inline-block;
-      font-size: 26px;
-      vertical-align: middle;
-    }
-
-    .controls {
+    #controls {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 20px;
-      background: #fff;
-      border-bottom: 1px solid #ddd;
-      flex-wrap: wrap;
       gap: 10px;
-    }
-    .controls input {
-      flex: 1;
       padding: 10px;
-      font-size: 16px;
+    }
+    #search {
+      flex: 1;
+      padding: 8px;
+      border-radius: 8px;
       border: 1px solid #ccc;
-      border-radius: 8px;
     }
-    .toggle-btn {
-      cursor: pointer;
-      background: #222;
+    #toggleTheme {
+      background: crimson;
       color: #fff;
-      padding: 10px 16px;
-      border-radius: 8px;
       border: none;
-      transition: 0.3s;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
     }
-    .toggle-btn:hover { background: #444; }
-
-    .officials {
+    .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 20px;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding: 12px;
     }
-
     .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 18px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      transition: transform 0.2s;
+      background: var(--card);
+      border-radius: 10px;
+      padding: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      animation: fadeIn 0.4s ease-in-out;
     }
-    .card:hover { transform: translateY(-5px); }
     .card h3 {
-      font-size: 20px;
-      margin-bottom: 8px;
-      color: #e60000;
+      margin: 0;
+      font-size: 1.1em;
+      color: var(--primary);
     }
     .card p {
-      margin: 5px 0;
-      color: #555;
+      margin: 4px 0;
     }
-
     footer {
       text-align: center;
-      padding: 15px;
-      margin-top: 20px;
-      background: #222;
-      color: #fff;
+      padding: 10px;
+      font-size: 14px;
+      background: var(--card);
     }
-
-    /* Dark mode */
-    body.dark { background: #1c1c1c; color: #eee; }
-    body.dark header { background: linear-gradient(90deg, #333, #111); }
-    body.dark .controls { background: #222; border-color: #444; }
-    body.dark .controls input { background: #333; border: 1px solid #555; color: #eee; }
-    body.dark .card { background: #2a2a2a; color: #eee; }
-    body.dark .card p { color: #ccc; }
-    body.dark .toggle-btn { background: #eee; color: #222; }
+    @keyframes fadeIn {
+      from {opacity:0; transform: translateY(5px);}
+      to {opacity:1; transform: translateY(0);}
+    }
   </style>
 </head>
 <body>
   <header>
     <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg" alt="Nepal Flag">
-    <h1>Nepal Officials</h1>
+    Nepal Officials
   </header>
 
-  <div class="controls">
+  <div id="controls">
     <input type="text" id="search" placeholder="🔍 Search officials...">
-    <button class="toggle-btn" id="themeToggle">🌙 Dark</button>
+    <button id="toggleTheme">🌙</button>
   </div>
 
-  <div class="officials" id="officials"></div>
+  <div class="cards" id="cards"></div>
 
-  <footer>
-    © David – All Rights Reserved
-  </footer>
+  <footer>© David | Auto-updating</footer>
 
   <script>
-    const url = "https://raw.githubusercontent.com/KingStha0013/nepal-officals/main/officials.json";
-    const container = document.getElementById("officials");
-    const searchInput = document.getElementById("search");
-    const themeToggle = document.getElementById("themeToggle");
-    let officialsData = [];
-
-    // Fetch officials
-    async function fetchOfficials() {
-      try {
-        const res = await fetch(url + "?t=" + Date.now()); // cache bust
-        const data = await res.json();
-        officialsData = data;
-        displayOfficials(data);
-      } catch (error) {
-        container.innerHTML = "<p>⚠️ Failed to load data.</p>";
-        console.error("Fetch error:", error);
-      }
+    async function loadOfficials() {
+      const res = await fetch("https://raw.githubusercontent.com/KingStha0013/nepal-officals/main/officials.json?ts=" + Date.now());
+      const data = await res.json();
+      displayOfficials(data);
     }
 
-    // Display cards
-    function displayOfficials(data) {
-      container.innerHTML = "";
-      if (!data.length) {
-        container.innerHTML = "<p>No officials found.</p>";
-        return;
-      }
-      data.forEach(o => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
+    function displayOfficials(list) {
+      const cards = document.getElementById("cards");
+      cards.innerHTML = "";
+      list.forEach(o => {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = `
           <h3>${o.name}</h3>
           <p><strong>Position:</strong> ${o.position}</p>
           <p><strong>Ministry:</strong> ${o.ministry}</p>
         `;
-        container.appendChild(card);
+        cards.appendChild(div);
       });
     }
 
-    // Search filter
-    searchInput.addEventListener("input", () => {
-      const value = searchInput.value.toLowerCase();
-      const filtered = officialsData.filter(o =>
-        o.name.toLowerCase().includes(value) ||
-        o.position.toLowerCase().includes(value) ||
-        o.ministry.toLowerCase().includes(value)
-      );
-      displayOfficials(filtered);
+    // Search
+    document.getElementById("search").addEventListener("input", e => {
+      const q = e.target.value.toLowerCase();
+      document.querySelectorAll(".card").forEach(c => {
+        c.style.display = c.textContent.toLowerCase().includes(q) ? "" : "none";
+      });
     });
 
-    // Dark/Light toggle
-    themeToggle.addEventListener("click", () => {
+    // Dark mode
+    document.getElementById("toggleTheme").addEventListener("click", () => {
       document.body.classList.toggle("dark");
-      themeToggle.textContent = document.body.classList.contains("dark") ? "☀️ Light" : "🌙 Dark";
     });
 
-    // Auto refresh every 40s
-    setInterval(fetchOfficials, 40000);
-
-    // Initial load
-    fetchOfficials();
+    // Auto update
+    loadOfficials();
+    setInterval(loadOfficials, 40000);
   </script>
 </body>
 </html>
