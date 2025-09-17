@@ -3,39 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nepal Government Officials - Upgraded</title>
+<title>Nepal Government Officials - Futuristic App</title>
+
 <style>
 :root{
-  --bg:#111;
-  --text:#eee;
-  --card:#1c1c1c;
-  --accent1:#dc143c;
-  --accent2:#003893;
-  --shadow:rgba(0,0,0,0.5);
-  --transition:0.3s;
+  --bg:#111; --text:#eee; --card:#1c1c1c;
+  --accent1:#dc143c; --accent2:#003893;
+  --shadow:rgba(0,0,0,0.5); --transition:0.3s;
 }
-body.light{
-  --bg:#f0f2f5;
-  --text:#222;
-  --card:#fff;
-  --shadow:rgba(0,0,0,0.08);
-}
+body.light{--bg:#f0f2f5;--text:#222;--card:#fff;--shadow:rgba(0,0,0,0.08);}
 body{margin:0;font-family:'Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--text);transition:all var(--transition);}
 a{text-decoration:none;color:inherit;}
 
 /* Header */
 header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:12px 16px;
-  background:linear-gradient(90deg,var(--accent1),var(--accent2));
-  color:#fff;
-  position:sticky;
-  top:0;
-  z-index:10;
-  box-shadow:0 3px 10px var(--shadow);
-  animation:headerGradient 6s linear infinite alternate;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 16px;background:linear-gradient(90deg,var(--accent1),var(--accent2));
+  color:#fff;position:sticky;top:0;z-index:10;box-shadow:0 3px 10px var(--shadow);
+  animation:headerGradient 8s linear infinite alternate;
 }
 @keyframes headerGradient{
   0%{background:linear-gradient(90deg,#dc143c,#003893);}
@@ -43,23 +28,13 @@ header{
   100%{background:linear-gradient(90deg,#dc143c,#003893);}
 }
 header .title{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:bold;
-  font-size:1.05em;
-  animation:breath 3s ease-in-out infinite;
-  padding:4px 8px;
-  border-radius:6px;
-  background:rgba(255,255,255,0.1);
+  display:flex;align-items:center;gap:10px;font-weight:bold;font-size:1.1em;
+  animation:breath 3s ease-in-out infinite;padding:4px 8px;border-radius:6px;background:rgba(255,255,255,0.1);
 }
-header .title img{
-  width:36px;height:36px;border-radius:4px;background:#fff;padding:2px;
-}
-@keyframes breath{
-  0%,100%{transform:scale(1);}
-  50%{transform:scale(1.05);}
-}
+header .title img{width:36px;height:36px;border-radius:4px;background:#fff;padding:2px;}
+@keyframes breath{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
+
+/* Controls */
 .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
 button{border:none;border-radius:50%;width:36px;height:36px;font-size:16px;cursor:pointer;transition:all var(--transition);}
 button:hover{transform:scale(1.1);}
@@ -71,59 +46,35 @@ button:hover{transform:scale(1.1);}
 @keyframes blink{0%,50%{opacity:1;}50.01%,100%{opacity:0;}}
 
 /* Search */
-.search-box{
-  padding:14px 16px;
-  display:flex;
-  justify-content:center;
-}
+.search-box{padding:14px 16px;display:flex;justify-content:center;}
 .search-box input{
-  width:100%;
-  max-width:420px;
-  padding:10px 16px;
-  border-radius:30px;
-  border:1px solid #ccc;
-  font-size:0.95em;
-  box-shadow:0 2px 6px var(--shadow);
-  outline:none;
+  width:100%;max-width:420px;padding:10px 16px;border-radius:30px;
+  border:1px solid #ccc;font-size:0.95em;box-shadow:0 2px 6px var(--shadow);outline:none;
   transition:border 0.3s, box-shadow 0.3s;
 }
-.search-box input:focus{
-  border-color:var(--accent1);
-  box-shadow:0 4px 12px var(--shadow);
-}
+.search-box input:focus{border-color:var(--accent1);box-shadow:0 4px 12px var(--shadow);}
 
 /* Container */
 .container{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:16px;
-  padding:12px 16px 20px 16px;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:16px;padding:12px 16px 20px 16px;
 }
 
 /* Card */
 .card{
-  background:var(--card);
-  border-radius:14px;
-  padding:16px;
+  background:var(--card);border-radius:14px;padding:16px;
   box-shadow:0 4px 12px var(--shadow);
   transition:transform 0.5s, box-shadow 0.5s, border 0.5s, background 1s;
-  position:relative;
-  overflow:hidden;
-  border:2px solid transparent;
+  position:relative;overflow:hidden;border:2px solid transparent;
   animation:fadeInUp 0.6s ease forwards;
 }
-@keyframes fadeInUp{
-  0%{opacity:0;transform:translateY(20px);}
-  100%{opacity:1;transform:translateY(0);}
-}
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 10px 25px var(--shadow);
-  border-image:linear-gradient(45deg,var(--accent1),var(--accent2)) 1;
-}
+@keyframes fadeInUp{0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);}}
+.card:hover{transform:translateY(-8px);box-shadow:0 10px 25px var(--shadow);border-image:linear-gradient(45deg,var(--accent1),var(--accent2)) 1;}
 .card h3{color:var(--accent1);margin-bottom:8px;font-size:1.1em;}
 .card p{font-size:0.88em;line-height:1.4;margin-bottom:4px;}
 .highlight{background:yellow;color:#000;transition:all 0.3s;}
+.card:hover::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;border-radius:14px;background:linear-gradient(90deg,var(--accent1),var(--accent2));opacity:0.05;animation:pulse 1.5s infinite;}
+@keyframes pulse{0%{opacity:0.05;}50%{opacity:0.15;}100%{opacity:0.05;}}
 
 /* Footer */
 footer{text-align:center;padding:16px;font-size:0.85em;background:var(--card);box-shadow:0 -2px 8px var(--shadow);margin-top:20px;}
@@ -144,8 +95,8 @@ body.light footer{background:#f0f0f0;}
     Nepal Government Officials
   </div>
   <div class="controls">
-    <button class="toggle-btn" onclick="toggleDarkMode()">☀</button>
-    <button class="toggle-btn" onclick="toggleLanguage()">EN</button>
+    <button id="darkBtn" class="toggle-btn" onclick="toggleDarkMode()">☀</button>
+    <button id="langBtn" class="toggle-btn" onclick="toggleLanguage()">EN</button>
     <span id="time">🕒 --:--<span class="blink">:</span>--</span>
   </div>
 </header>
@@ -159,25 +110,22 @@ body.light footer{background:#f0f0f0;}
 <footer>🇳🇵 © David | Nepal Government Officials App</footer>
 
 <script>
-let officialsData=[];
-let currentLang="en";
+let officialsData=[]; let currentLang="en";
 
-/* Fetch Officials */
+/* Fetch officials.json from GitHub */
 async function fetchOfficials(){
   const container=document.getElementById("officialsContainer");
   container.innerHTML="<p>🔄 Loading data...</p>";
   try{
     const res=await fetch("https://raw.githubusercontent.com/KingStha0013/nepal-officals/main/officials.json?nocache="+new Date().getTime());
     const data=await res.json();
-    officialsData=data;
-    renderOfficials();
+    officialsData=data; renderOfficials();
   }catch(e){
-    console.error(e);
-    container.innerHTML="<p>⚠ Failed to load data!</p>";
+    console.error(e); container.innerHTML="<p>⚠ Failed to load data!</p>";
   }
 }
 
-/* Render Officials */
+/* Render officials */
 function renderOfficials(){
   const container=document.getElementById("officialsContainer");
   const search=document.getElementById("searchInput").value.toLowerCase();
@@ -199,36 +147,44 @@ function renderOfficials(){
     `;
     container.appendChild(card);
   });
+  if(filtered.length===0) container.innerHTML="<p>⚠ No results found!</p>";
 }
 
-/* Highlight */
+/* Highlight matches */
 function highlightText(text,search){
-  if(!search) return text;
-  const regex=new RegExp(`(${search})`,"gi");
+  if(!search) return text;const regex=new RegExp(`(${search})`,"gi");
   return text.replace(regex,`<span class="highlight">$1</span>`);
 }
 
-/* Toggles */
-function toggleDarkMode(){document.body.classList.toggle("light");}
-function toggleLanguage(){currentLang=currentLang==="en"?"np":"en";renderOfficials();}
-
-/* Search */
-document.getElementById("searchInput").addEventListener("input",renderOfficials);
-
-/* Nepali Time */
-function updateNepaliTime(){
-  const d=new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Kathmandu"}));
-  let h=d.getHours().toString().padStart(2,'0');
-  let m=d.getMinutes().toString().padStart(2,'0');
-  let s=d.getSeconds().toString().padStart(2,'0');
-  document.getElementById("time").innerHTML=`🕒 ${h}:${m}<span class="blink">:</<span class="blink">:</span>${s}`;
+/* Dark/light mode toggle */
+function toggleDarkMode(){
+  document.body.classList.toggle("light");
 }
-setInterval(updateNepaliTime,1000);
 
-/* Auto Fetch Every 40 Seconds */
-setInterval(fetchOfficials,40000);
+/* Language toggle with button text change */
+function toggleLanguage(){
+  currentLang=currentLang==="en"?"np":"en";
+  document.getElementById("langBtn").innerText=currentLang==="en"?"EN":"ने";
+  renderOfficials();
+}
 
-/* Initial Load */
+/* Search input event */
+document.getElementById("searchInput").addEventListener("input", renderOfficials);
+
+/* Nepali live time with blinking seconds only */
+function updateNepaliTime() {
+  const d = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kathmandu" }));
+  let h = d.getHours().toString().padStart(2, '0');
+  let m = d.getMinutes().toString().padStart(2, '0');
+  let s = d.getSeconds().toString().padStart(2, '0');
+  document.getElementById("time").innerHTML = `🕒 ${h}:${m}<span class="blink">:</span>${s}`;
+}
+setInterval(updateNepaliTime, 1000);
+
+/* Auto-fetch officials every 40 seconds */
+setInterval(fetchOfficials, 40000);
+
+/* Initial load */
 fetchOfficials();
 updateNepaliTime();
 </script>
