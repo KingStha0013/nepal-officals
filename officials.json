@@ -1,169 +1,221 @@
 [
   {
-    "name": "Ram Prasad Paudel",
-    "position": "President",
-    "ministry": "Office of the President",
-    "seat": "National",
-    "photo": "https://en.m.wikipedia.org/wiki/File:President_Ram_Chandra_Poudel,_Official_portrait_(January_2024).jpg"
-  },
-  {
-    "name": "Ram Sahaya Yadav",
-    "position": "Vice President",
-    "ministry": "Office of the Vice President",
-    "seat": "National",
-    "photo": "https://example.com/photos/ram_sahaya_yadav.jpg"
-  },
-  {
-    "name": "Sushila Karki",
+    "name": "Susila Karki",
+    "name_np": "सुसिला कार्की",
     "position": "Prime Minister (Interim)",
+    "position_np": "प्रधानमन्त्री (अन्तरिम)",
     "ministry": "Office of the Prime Minister and Council of Ministers",
+    "ministry_np": "प्रधानमन्त्री तथा मन्त्रिपरिषद्को कार्यालय",
     "seat": "National",
-    "photo": "https://example.com/photos/sushila_karki.jpg"
-  },
-  {
-    "name": "Kulman Ghising",
-    "position": "Minister of Energy, Water Resources and Irrigation",
-    "ministry": "Ministry of Energy, Water Resources and Irrigation",
-    "seat": "National",
-    "photo": "https://example.com/photos/kulman_ghising.jpg"
-  },
-  {
-    "name": "Rameshwor Khanal",
-    "position": "Minister of Finance",
-    "ministry": "Ministry of Finance",
-    "seat": "National",
-    "photo": "https://example.com/photos/rameshwor_khanal.jpg"
-  },
-  {
-    "name": "Om Prakash Aryal",
-    "position": "Minister of Home Affairs, Law, Justice and Parliamentary Affairs, and Labour, Employment and Social Security",
-    "ministry": "Ministry of Home Affairs, Ministry of Law, Justice and Parliamentary Affairs, Ministry of Labour, Employment and Social Security",
-    "seat": "National",
-    "photo": "https://example.com/photos/om_prakash_aryal.jpg"
-  },
-  {
-    "name": "Kalman Gurung",
-    "position": "Minister of Energy",
-    "ministry": "Ministry of Energy",
-    "seat": "National",
-    "photo": "https://example.com/photos/kalman_gurung.jpg"
-  },
-  {
-    "name": "Bhagwati Neupane",
-    "position": "Minister of Federal Affairs and General Administration",
-    "ministry": "Ministry of Federal Affairs and General Administration",
-    "seat": "National",
-    "photo": "https://example.com/photos/bhagwati_neupane.jpg"
+    "photo": ""
   },
   {
     "name": "Vacant",
+    "name_np": "खाली",
     "position": "Deputy Prime Minister and Minister of Urban Development",
+    "position_np": "उपप्रधानमन्त्री तथा नगर विकास मन्त्री",
     "ministry": "Ministry of Urban Development",
+    "ministry_np": "नगर विकास मन्त्रालय",
     "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
+    "name_np": "खाली",
+    "position": "Minister of Finance",
+    "position_np": "अर्थ मन्त्री",
+    "ministry": "Ministry of Finance",
+    "ministry_np": "अर्थ मन्त्रालय",
+    "seat": "",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "name_np": "खाली",
     "position": "Minister of Communications and Information Technology",
+    "position_np": "संचार तथा सूचना प्रविधि मन्त्री",
     "ministry": "Ministry of Communications and Information Technology",
+    "ministry_np": "संचार तथा सूचना प्रविधि मन्त्रालय",
     "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
+    "name_np": "खाली",
+    "position": "Minister of Home Affairs",
+    "position_np": "गृह मन्त्री",
+    "ministry": "Ministry of Home Affairs",
+    "ministry_np": "गृह मन्त्रालय",
+    "seat": "",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "name_np": "खाली",
+    "position": "Minister of Labour, Employment and Social Security",
+    "position_np": "श्रम, रोजगार तथा सामाजिक सुरक्षा मन्त्री",
+    "ministry": "Ministry of Labour, Employment and Social Security",
+    "ministry_np": "श्रम, रोजगार तथा सामाजिक सुरक्षा मन्त्रालय",
+    "seat": "",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "name_np": "खाली",
     "position": "Minister of Foreign Affairs",
+    "position_np": "परराष्ट्र मन्त्री",
     "ministry": "Ministry of Foreign Affairs",
+    "ministry_np": "परराष्ट्र मन्त्रालय",
     "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
+    "name_np": "खाली",
     "position": "Minister of Education, Science and Technology",
+    "position_np": "शिक्षा, विज्ञान तथा प्रविधि मन्त्री",
     "ministry": "Ministry of Education, Science and Technology",
+    "ministry_np": "शिक्षा, विज्ञान तथा प्रविधि मन्त्रालय",
     "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
+    "name_np": "खाली",
     "position": "Minister of Water Supply",
+    "position_np": "जल आपूर्ति मन्त्री",
     "ministry": "Ministry of Water Supply",
+    "ministry_np": "जल आपूर्ति मन्त्रालय",
     "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
+    "name_np": "खाली",
     "position": "Minister of Land Management, Cooperatives and Poverty Alleviation",
+    "position_np": "भूमि व्यवस्था, सहकारी तथा गरिबी निवारण मन्त्री",
     "ministry": "Ministry of Land Management, Cooperatives and Poverty Alleviation",
+    "ministry_np": "भूमि व्यवस्था, सहकारी तथा गरिबी निवारण मन्त्रालय",
     "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
+    "name_np": "खाली",
     "position": "Minister of Industry, Commerce and Supplies",
+    "position_np": "उद्योग, वाणिज्य तथा आपूर्ति मन्त्री",
     "ministry": "Ministry of Industry, Commerce and Supplies",
+    "ministry_np": "उद्योग, वाणिज्य तथा आपूर्ति मन्त्रालय",
     "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
+    "name_np": "खाली",
     "position": "Minister of Women, Children and Senior Citizens",
+    "position_np": "महिला, बालबालिका तथा जेष्ठ नागरिक मन्त्री",
     "ministry": "Ministry of Women, Children and Senior Citizens",
+    "ministry_np": "महिला, बालबालिका तथा जेष्ठ नागरिक मन्त्रालय",
     "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
+    "name_np": "खाली",
     "position": "Minister of Physical Infrastructure and Transport",
+    "position_np": "भौतिक पूर्वाधार तथा यातायात मन्त्री",
     "ministry": "Ministry of Physical Infrastructure and Transport",
+    "ministry_np": "भौतिक पूर्वाधार तथा यातायात मन्त्रालय",
     "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
+    "name_np": "खाली",
     "position": "Minister of Youth and Sports",
+    "position_np": "युवा तथा खेलकुद मन्त्री",
     "ministry": "Ministry of Youth and Sports",
+    "ministry_np": "युवा तथा खेलकुद मन्त्रालय",
     "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
+    "name_np": "खाली",
     "position": "Minister of Health and Population",
+    "position_np": "स्वास्थ्य तथा जनसंख्या मन्त्री",
     "ministry": "Ministry of Health and Population",
+    "ministry_np": "स्वास्थ्य तथा जनसंख्या मन्त्रालय",
     "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
+    "name_np": "खाली",
     "position": "Minister of Law, Justice and Parliamentary Affairs",
+    "position_np": "कानून, न्याय तथा संसदीय मामिला मन्त्री",
     "ministry": "Ministry of Law, Justice and Parliamentary Affairs",
+    "ministry_np": "कानून, न्याय तथा संसदीय मामिला मन्त्रालय",
     "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
+    "name_np": "खाली",
     "position": "Minister of Culture, Tourism and Civil Aviation",
+    "position_np": "संस्कृति, पर्यटन तथा नागरिक उड्डयन मन्त्री",
     "ministry": "Ministry of Culture, Tourism and Civil Aviation",
+    "ministry_np": "संस्कृति, पर्यटन तथा नागरिक उड्डयन मन्त्रालय",
     "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
+    "name_np": "खाली",
     "position": "Minister of Agriculture and Livestock Development",
+    "position_np": "कृषि तथा पशुपन्छी विकास मन्त्री",
     "ministry": "Ministry of Agriculture and Livestock Development",
+    "ministry_np": "कृषि तथा पशुपन्छी विकास मन्त्रालय",
     "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
+    "name_np": "खाली",
     "position": "Minister of Defence",
+    "position_np": "रक्षा मन्त्री",
     "ministry": "Ministry of Defence",
+    "ministry_np": "रक्षा मन्त्रालय",
     "seat": "",
     "photo": ""
   },
   {
     "name": "Vacant",
+    "name_np": "खाली",
+    "position": "Minister of Energy, Water Resources and Irrigation",
+    "position_np": "ऊर्जा, जल स्रोत तथा सिँचाइ मन्त्री",
+    "ministry": "Ministry of Energy, Water Resources and Irrigation",
+    "ministry_np": "ऊर्जा, जल स्रोत तथा सिँचाइ मन्त्रालय",
+    "seat": "",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "name_np": "खाली",
+    "position": "Minister of Federal Affairs and General Administration",
+    "position_np": "संघीय मामिला तथा सामान्य प्रशासन मन्त्री",
+    "ministry": "Ministry of Federal Affairs and General Administration",
+    "ministry_np": "संघीय मामिला तथा सामान्य प्रशासन मन्त्रालय",
+    "seat": "",
+    "photo": ""
+  },
+  {
+    "name": "Vacant",
+    "name_np": "खाली",
     "position": "Minister of Forests and Environment",
+    "position_np": "वन तथा वातावरण मन्त्री",
     "ministry": "Ministry of Forests and Environment",
+    "ministry_np": "वन तथा वातावरण मन्त्रालय",
     "seat": "",
     "photo": ""
   }
