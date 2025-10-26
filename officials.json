@@ -50,14 +50,14 @@
     "photo": "Omprakash.jpg"
   },
   {
-    "name": "Sharat Singh Bhandari",
-    "name_np": "शरत सिंह भण्डारी",
+    "name": "Vacant",
+    "name_np": "खाली",
     "position": "Minister of Labour, Employment and Social Security",
     "position_np": "श्रम, रोजगार तथा सामाजिक सुरक्षा मन्त्री",
     "ministry": "Ministry of Labour, Employment and Social Security",
     "ministry_np": "श्रम, रोजगार तथा सामाजिक सुरक्षा मन्त्रालय",
     "seat": "",
-    "photo": "Sharat.png"
+    "photo": ""
   },
   {
     "name": "Susila Karki",
@@ -70,8 +70,8 @@
     "photo": "susila_karki.png"
   },
   {
-    "name": "Vacant",
-    "name_np": "खाली",
+    "name": "Mahabir Pun",
+    "name_np": "महावीर पुन",
     "position": "Minister of Education, Science and Technology",
     "position_np": "शिक्षा, विज्ञान तथा प्रविधि मन्त्री",
     "ministry": "Ministry of Education, Science and Technology",
@@ -80,18 +80,18 @@
     "photo": ""
   },
   {
-    "name": "Vacant",
-    "name_np": "खाली",
+    "name": "Kulman Ghising",
+    "name_np": "कुलमान घिसिङ",
     "position": "Minister of Water Supply",
     "position_np": "जल आपूर्ति मन्त्री",
     "ministry": "Ministry of Water Supply",
     "ministry_np": "जल आपूर्ति मन्त्रालय",
     "seat": "",
-    "photo": ""
+    "photo": "Kulman.jpg"
   },
   {
-    "name": "Vacant",
-    "name_np": "खाली",
+    "name": "Anil Kumar Sinha",
+    "name_np": "अनिल कुमार सिन्हा",
     "position": "Minister of Land Management, Cooperatives and Poverty Alleviation",
     "position_np": "भूमि व्यवस्था, सहकारी तथा गरिबी निवारण मन्त्री",
     "ministry": "Ministry of Land Management, Cooperatives and Poverty Alleviation",
@@ -100,8 +100,8 @@
     "photo": ""
   },
   {
-    "name": "Vacant",
-    "name_np": "खाली",
+    "name": "Anil Kumar Sinha",
+    "name_np": "अनिल कुमार सिन्हा",
     "position": "Minister of Industry, Commerce and Supplies",
     "position_np": "उद्योग, वाणिज्य तथा आपूर्ति मन्त्री",
     "ministry": "Ministry of Industry, Commerce and Supplies",
@@ -120,14 +120,14 @@
     "photo": ""
   },
   {
-    "name": "Vacant",
-    "name_np": "खाली",
+    "name": "Kulman Ghising",
+    "name_np": "कुलमान घिसिङ",
     "position": "Minister of Physical Infrastructure and Transport",
     "position_np": "भौतिक पूर्वाधार तथा यातायात मन्त्री",
     "ministry": "Ministry of Physical Infrastructure and Transport",
     "ministry_np": "भौतिक पूर्वाधार तथा यातायात मन्त्रालय",
     "seat": "",
-    "photo": ""
+    "photo": "Kulman.jpg"
   },
   {
     "name": "Vacant",
@@ -150,8 +150,8 @@
     "photo": ""
   },
   {
-    "name": "Vacant",
-    "name_np": "खाली",
+    "name": "Anil Kumar Sinha",
+    "name_np": "अनिल कुमार सिन्हा",
     "position": "Minister of Law, Justice and Parliamentary Affairs",
     "position_np": "कानून, न्याय तथा संसदीय मामिला मन्त्री",
     "ministry": "Ministry of Law, Justice and Parliamentary Affairs",
@@ -170,8 +170,8 @@
     "photo": ""
   },
   {
-    "name": "Vacant",
-    "name_np": "खाली",
+    "name": "Madan Prasad Pariyar",
+    "name_np": "मदन प्रसाद परियार",
     "position": "Minister of Agriculture and Livestock Development",
     "position_np": "कृषि तथा पशुपन्छी विकास मन्त्री",
     "ministry": "Ministry of Agriculture and Livestock Development",
@@ -180,34 +180,34 @@
     "photo": ""
   },
   {
-    "name": "Vacant",
-    "name_np": "खाली",
+    "name": "Susila Karki",
+    "name_np": "सुसिला कार्की",
     "position": "Minister of Defence",
     "position_np": "रक्षा मन्त्री",
     "ministry": "Ministry of Defence",
     "ministry_np": "रक्षा मन्त्रालय",
     "seat": "",
-    "photo": ""
+    "photo": "susila_karki.png"
   },
   {
-    "name": "Vacant",
-    "name_np": "खाली",
+    "name": "Kulman Ghising",
+    "name_np": "कुलमान घिसिङ",
     "position": "Minister of Energy, Water Resources and Irrigation",
     "position_np": "ऊर्जा, जल स्रोत तथा सिँचाइ मन्त्री",
     "ministry": "Ministry of Energy, Water Resources and Irrigation",
     "ministry_np": "ऊर्जा, जल स्रोत तथा सिँचाइ मन्त्रालय",
     "seat": "",
-    "photo": ""
+    "photo": "Kulman.jpg"
   },
   {
-    "name": "Vacant",
-    "name_np": "खाली",
+    "name": "Rameshwor Prasad Khanal",
+    "name_np": "रामेश्वर प्रसाद खनाल",
     "position": "Minister of Federal Affairs and General Administration",
     "position_np": "संघीय मामिला तथा सामान्य प्रशासन मन्त्री",
     "ministry": "Ministry of Federal Affairs and General Administration",
     "ministry_np": "संघीय मामिला तथा सामान्य प्रशासन मन्त्रालय",
     "seat": "",
-    "photo": ""
+    "photo": "Rameshor.jpg"
   },
   {
     "name": "Susila Karki",
