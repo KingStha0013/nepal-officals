@@ -7,7 +7,7 @@
     "ministry": "Office of the Prime Minister and Council of Ministers",
     "ministry_np": "प्रधानमन्त्री तथा मन्त्रिपरिषद्को कार्यालय",
     "seat": "National",
-    "photo": "susila_karki.png"
+    "photo": "image/susila_karki.png"
   },
   {
     "name": "Kulman Ghising",
@@ -17,7 +17,7 @@
     "ministry": "Ministry of Urban Development",
     "ministry_np": "नगर विकास मन्त्रालय",
     "seat": "",
-    "photo": "Kulman.jpg"
+    "photo": "image/Kulman.jpg"
   },
   {
     "name": "Rameshwor Prasad Khanal",
@@ -27,7 +27,7 @@
     "ministry": "Ministry of Finance",
     "ministry_np": "अर्थ मन्त्रालय",
     "seat": "",
-    "photo": "Rameshor.jpg"
+    "photo": "image/Rameshor.jpg"
   },
   {
     "name": "Jagdish Kharel",
@@ -37,7 +37,7 @@
     "ministry": "Ministry of Communications and Information Technology",
     "ministry_np": "संचार तथा सूचना प्रविधि मन्त्रालय",
     "seat": "",
-    "photo": "Jagdish.jpg"
+    "photo": "image/Jagdish.jpg"
   },
   {
     "name": "Om Prakash Aryal",
@@ -47,7 +47,7 @@
     "ministry": "Ministry of Home Affairs",
     "ministry_np": "गृह मन्त्रालय",
     "seat": "",
-    "photo": "Omprakash.jpg"
+    "photo": "image/Omprakash.jpg"
   },
   {
     "name": "Sharat Singh Bhandari",
@@ -57,7 +57,7 @@
     "ministry": "Ministry of Labour, Employment and Social Security",
     "ministry_np": "श्रम, रोजगार तथा सामाजिक सुरक्षा मन्त्रालय",
     "seat": "",
-    "photo": "Sharat.png"
+    "photo": "image/Sharat.png"
   },
   {
     "name": "Susila Karki",
@@ -67,7 +67,7 @@
     "ministry": "Ministry of Foreign Affairs",
     "ministry_np": "परराष्ट्र मन्त्रालय",
     "seat": "",
-    "photo": "susila_karki.png"
+    "photo": "image/susila_karki.png"
   },
   {
     "name": "Vacant",
@@ -217,6 +217,6 @@
     "ministry": "Ministry of Forests and Environment",
     "ministry_np": "वन तथा वातावरण मन्त्रालय",
     "seat": "",
-    "photo": "susila_karki.png"
+    "photo": "image/susila_karki.png"
   }
 ]
