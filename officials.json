@@ -17,7 +17,7 @@
     "ministry": "Office of the Prime Minister and Council of Ministers",
     "ministry_np": "प्रधानमन्त्री तथा मन्त्रिपरिषद्को कार्यालय",
     "seat": "",
-    "photo": "susila_karki.jpg"
+    "photo": "https://assets-cdn.kathmandupost.com/uploads/source/news/2018/miscellaneous/Susila-Karki--19022018113917.jpg"
   },
   {
     "name": "Kulman Ghising",
@@ -27,7 +27,7 @@
     "ministry": "Ministry of Urban Development",
     "ministry_np": "नगर विकास मन्त्रालय",
     "seat": "",
-    "photo": "Kulman.jpg"
+    "photo": "https://ace.edu.np/wp-content/uploads/Kulman-Ghising.jpg"
   },
   {
     "name": "Rameshwor Prasad Khanal",
@@ -37,7 +37,7 @@
     "ministry": "Ministry of Finance",
     "ministry_np": "अर्थ मन्त्रालय",
     "seat": "",
-    "photo": "Rameshor.jpg"
+    "photo": "https://republicaimg.nagariknewscdn.com/shared/web/uploads/media/2eswzLBkDcq3HEETf3KYF25X2DAQlUQVZh2oHDRf.jpg"
   },
   {
     "name": "Jagdish Kharel",
@@ -47,7 +47,7 @@
     "ministry": "Ministry of Communications and Information Technology",
     "ministry_np": "संचार तथा सूचना प्रविधि मन्त्रालय",
     "seat": "",
-    "photo": "Jagdish.jpg"
+    "photo": "https://assets-api.kathmandupost.com/thumb.php?src=https://assets-cdn.kathmandupost.com/uploads/source/news/2025/third-party/55129851533162101718892028449282730828433486n-1758546306.jpg&w=900&height=601"
   },
   {
     "name": "Om Prakash Aryal",
@@ -57,7 +57,7 @@
     "ministry": "Ministry of Home Affairs",
     "ministry_np": "गृह मन्त्रालय",
     "seat": "",
-    "photo": "Omprakash.jpg"
+    "photo": "https://enewspolar.com/wp-content/uploads/2025/10/Om-Prakash-Aryal-768x432.jpg"
   },
   {
     "name": "Vacant Vacant",
@@ -77,7 +77,7 @@
     "ministry": "Ministry of Foreign Affairs",
     "ministry_np": "परराष्ट्र मन्त्रालय",
     "seat": "",
-    "photo": "susila_karki.png"
+    "photo": "https://assets-cdn.kathmandupost.com/uploads/source/news/2018/miscellaneous/Susila-Karki--19022018113917.jpg"
   },
   {
     "name": "Mahabir Pun",
@@ -97,7 +97,7 @@
     "ministry": "Ministry of Water Supply",
     "ministry_np": "जल आपूर्ति मन्त्रालय",
     "seat": "",
-    "photo": "Kulman.jpg"
+    "photo": "https://ace.edu.np/wp-content/uploads/Kulman-Ghising.jpg"
   },
   {
     "name": "Anil Kumar Sinha",
@@ -137,7 +137,7 @@
     "ministry": "Ministry of Physical Infrastructure and Transport",
     "ministry_np": "भौतिक पूर्वाधार तथा यातायात मन्त्रालय",
     "seat": "",
-    "photo": "Kulman.jpg"
+    "photo": "https://ace.edu.np/wp-content/uploads/Kulman-Ghising.jpg"
   },
   {
     "name": "Vacant Vacant",
@@ -197,7 +197,7 @@
     "ministry": "Ministry of Defence",
     "ministry_np": "रक्षा मन्त्रालय",
     "seat": "",
-    "photo": "susila_karki.png"
+    "photo": "https://assets-cdn.kathmandupost.com/uploads/source/news/2018/miscellaneous/Susila-Karki--19022018113917.jpg"
   },
   {
     "name": "Kulman Ghising",
@@ -207,7 +207,7 @@
     "ministry": "Ministry of Energy, Water Resources and Irrigation",
     "ministry_np": "ऊर्जा, जल स्रोत तथा सिँचाइ मन्त्रालय",
     "seat": "",
-    "photo": "Kulman.jpg"
+    "photo": "https://ace.edu.np/wp-content/uploads/Kulman-Ghising.jpg"
   },
   {
     "name": "Rameshwor Prasad Khanal",
@@ -217,7 +217,7 @@
     "ministry": "Ministry of Federal Affairs and General Administration",
     "ministry_np": "संघीय मामिला तथा सामान्य प्रशासन मन्त्रालय",
     "seat": "",
-    "photo": "Rameshor.jpg"
+    "photo": "https://republicaimg.nagariknewscdn.com/shared/web/uploads/media/2eswzLBkDcq3HEETf3KYF25X2DAQlUQVZh2oHDRf.jpg"
   },
   {
     "name": "Susila Karki",
@@ -227,6 +227,6 @@
     "ministry": "Ministry of Forests and Environment",
     "ministry_np": "वन तथा वातावरण मन्त्रालय",
     "seat": "",
-    "photo": "susila_karki.png"
+    "photo": "https://assets-cdn.kathmandupost.com/uploads/source/news/2018/miscellaneous/Susila-Karki--19022018113917.jpg"
   }
 ]
