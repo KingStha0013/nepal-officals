@@ -3,125 +3,618 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nepal Government Officials - Futuristic App</title>
+<title>Nepal Government Officials - Digital Directory</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
+/* ==================== 01. CORE STYLES & VARIABLES ==================== */
 :root{
   --bg:#111; --text:#eee; --card:#1c1c1c;
-  --accent1:#dc143c; --accent2:#003893;
-  --shadow:rgba(0,0,0,0.5); --transition:0.3s;
+  --accent1:#dc143c; /* Crimson Red */
+  --accent2:#003893; /* Dark Blue */
+  --shadow:rgba(0,0,0,0.5); 
+  --transition:0.3s;
+  --main-font: 'Roboto', 'Segoe UI', Tahoma, sans-serif;
+  --focus-glow: #ffc107; 
 }
-body.light{--bg:#f0f2f5;--text:#222;--card:#fff;--shadow:rgba(0,0,0,0.08);}
-body{margin:0;font-family:'Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--text);transition:all var(--transition);}
-a{text-decoration:none;color:inherit;}
+body.light{
+  --bg:#f0f2f5;
+  --text:#222;
+  --card:#fff;
+  --shadow:rgba(0,0,0,0.08);
+}
+body{
+  margin:0;
+  font-family:var(--main-font);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.5;
+  transition:all var(--transition);
+}
 
-/* Header */
+/* ==================== 02. HEADER & CONTROLS (Extra Compact) ==================== */
 header{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:12px 16px;background:linear-gradient(90deg,var(--accent1),var(--accent2));
-  color:#fff;position:sticky;top:0;z-index:10;box-shadow:0 3px 10px var(--shadow);
+  /* Still compact padding */
+  padding: 8px 16px 5px 16px; 
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+  background:linear-gradient(90deg,var(--accent1),var(--accent2));
+  color:#fff;position:sticky;top:0;z-index:10;
+  box-shadow:0 3px 10px var(--shadow);
   animation:headerGradient 8s linear infinite alternate;
 }
 @keyframes headerGradient{
-  0%{background:linear-gradient(90deg,#dc143c,#003893);}
-  50%{background:linear-gradient(90deg,#003893,#dc143c);}
-  100%{background:linear-gradient(90deg,#dc143c,#003893);}
+  0%{background:linear-gradient(90deg,var(--accent1),var(--accent2));}
+  50%{background:linear-gradient(90deg,var(--accent2),var(--accent1));}
+  100%{background:linear-gradient(90deg,var(--accent1),var(--accent2));}
 }
-header .title{
-  display:flex;align-items:center;gap:10px;font-weight:bold;font-size:1.1em;
-  animation:breath 3s ease-in-out infinite;padding:4px 8px;border-radius:6px;background:rgba(255,255,255,0.1);
+
+/* Title Styling */
+.title-group{
+  display:flex;align-items:center;gap:8px;
+  font-weight:700;
+  white-space: nowrap; 
+  margin-bottom: 5px; 
 }
-header .title img{width:36px;height:36px;border-radius:4px;background:#fff;padding:2px;}
-@keyframes breath{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
+.title-group h1{
+    font-size:1.4em; 
+    margin: 0; 
+}
+.title-group img{
+    /* Smaller App Icon */
+    width:30px;height:30px; 
+    border-radius:6px;
+    padding:4px; 
+    animation: rotateIcon 10s linear infinite; 
+}
+@keyframes rotateIcon {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
 
-/* Controls */
-.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-button{border:none;border-radius:50%;width:36px;height:36px;font-size:16px;cursor:pointer;transition:all var(--transition);}
-button:hover{transform:scale(1.1);}
-.toggle-btn{background:#fff;color:var(--accent1);font-weight:bold;position:relative;overflow:hidden;}
+/* Controls Styling */
+.controls-bar {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5px; 
+}
+.controls{
+    display:flex;
+    gap: 4px; /* Tighter gap */
+    align-items:center;
+    padding: 2px; /* Tighter padding inside control container */
+    border-radius: 30px; 
+    background: rgba(0, 0, 0, 0.2); 
+}
+button{
+  border:none;
+  border-radius:50%;
+  width:30px; /* Smaller button size */
+  height:30px; /* Smaller button size */
+  font-size:14px; /* Smaller font inside button */
+  cursor:pointer;transition:all var(--transition);
+  background:transparent; 
+  color:#fff; 
+  box-shadow:none;
+  display:flex;align-items:center;justify-content:center;
+  transform: scale(1);
+}
+button.action-btn { 
+    background:rgba(255, 255, 255, 0.1);
+    font-weight:bold;
+    font-size:13px; /* Slightly smaller action button font */
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+button:hover{transform:scale(1.1);background:rgba(255, 255, 255, 0.2);}
+button:active{transform:scale(0.95);box-shadow:none;} 
 
-/* Nepali Time */
-#time{font-size:0.85em;font-weight:bold;}
+.dark-icon {display:none;}
+body.light .dark-icon {display:inline;}
+body.light .light-icon {display:none;}
+
+#time{
+    font-size:0.85em; /* Slightly smaller time font */
+    font-weight:700;
+    color:white;
+    padding-left: 6px; /* Reduced padding */
+    padding-right: 2px; /* Reduced padding */
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+}
 #time .blink{animation:blink 1s step-start infinite;}
 @keyframes blink{0%,50%{opacity:1;}50.01%,100%{opacity:0;}}
 
-/* Search */
-.search-box{padding:14px 16px;display:flex;justify-content:center;}
+/* ==================== 03. SEARCH & MAIN LAYOUT ==================== */
+.search-box{
+    padding:10px 16px; 
+    display:flex;justify-content:center;
+    background:var(--bg); 
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; 
+    z-index: 5;
+}
 .search-box input{
-  width:100%;max-width:420px;padding:10px 16px;border-radius:30px;
-  border:1px solid #ccc;font-size:0.95em;box-shadow:0 2px 6px var(--shadow);outline:none;
-  transition:border 0.3s, box-shadow 0.3s;
+  width:100%;max-width:550px;padding:12px 20px; 
+  border-radius:30px;
+  border:1px solid #ccc;font-size:1em;box-shadow:0 2px 6px var(--shadow);
+  outline:none;transition:border 0.3s, box-shadow 0.3s, background var(--transition), color var(--transition);
+  background:var(--card);color:var(--text);
 }
-.search-box input:focus{border-color:var(--accent1);box-shadow:0 4px 12px var(--shadow);}
+.search-box input:focus{
+    border-color:var(--focus-glow); 
+    box-shadow:0 0 10px var(--focus-glow);
+}
 
-/* Container */
 .container{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:16px;padding:12px 16px 20px 16px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:15px; 
+  padding:15px; 
+  max-width:1200px;margin:0 auto; 
 }
 
-/* Card */
+/* ==================== 04. CARD & IMAGE (COMPACT) ==================== */
 .card{
-  background:var(--card);border-radius:14px;padding:16px;
+  padding:10px; 
+  display:flex; 
+  align-items:flex-start;
+  background:var(--card);
+  border-radius:12px;
   box-shadow:0 4px 12px var(--shadow);
-  transition:transform 0.5s, box-shadow 0.5s, border 0.5s, background 1s;
-  position:relative;overflow:hidden;border:2px solid transparent;
-  animation:fadeInUp 0.6s ease forwards;
+  transition:transform 0.3s, box-shadow 0.3s, border 0.3s;
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(255, 255, 255, 0.1); 
+  /* Make card clickable and indicate it's an action */
+  cursor: pointer; 
 }
-@keyframes fadeInUp{0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);}}
-.card:hover{transform:translateY(-8px);box-shadow:0 10px 25px var(--shadow);border-image:linear-gradient(45deg,var(--accent1),var(--accent2)) 1;}
-.card h3{color:var(--accent1);margin-bottom:8px;font-size:1.1em;}
-.card p{font-size:0.88em;line-height:1.4;margin-bottom:4px;}
-.highlight{background:yellow;color:#000;transition:all 0.3s;}
-.card:hover::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;border-radius:14px;background:linear-gradient(90deg,var(--accent1),var(--accent2));opacity:0.05;animation:pulse 1.5s infinite;}
-@keyframes pulse{0%{opacity:0.05;}50%{opacity:0.15;}100%{opacity:0.05;}}
+.card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 8px 20px var(--shadow);
+}
+.card-content {
+    flex-grow: 1;
+}
 
-/* Footer */
-footer{text-align:center;padding:16px;font-size:0.85em;background:var(--card);box-shadow:0 -2px 8px var(--shadow);margin-top:20px;}
-body.light footer{background:#f0f0f0;}
+/* Image box styling */
+.official-image {
+    width: 60px; 
+    height: 60px; 
+    min-width: 60px;
+    border-radius: 8px; 
+    object-fit: cover;
+    margin-right: 10px; 
+    border: 3px solid var(--accent2); 
+    box-shadow: 0 0 8px rgba(0, 56, 147, 0.5);
+}
+.fallback-image { 
+    background-color: var(--card) !important; 
+    border: 3px dashed var(--accent1) !important; 
+    box-shadow: 0 0 0 rgba(0,0,0,0) !important;
+    font-size: 10px;
+    text-align: center;
+    line-height: 55px;
+    color: var(--focus-glow);
+    font-weight: bold; 
+}
 
-/* Responsive */
-@media(max-width:500px){
-  header{flex-direction:column;gap:8px;align-items:flex-start;}
-  .controls{justify-content:flex-start;}
+.card h3{
+    color:var(--accent1);
+    margin-top:0;
+    margin-bottom: 2px; 
+    font-size:1.05em; 
+}
+.card p{
+    font-size:0.8em; 
+    line-height:1.3; 
+    margin-bottom: 2px; 
+    opacity:0.9;
+}
+.card p b {font-weight: 700; opacity: 1;}
+
+/* Scroll to Top Button Style (UPDATED) */
+#scrollToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px;
+    z-index: 99; 
+    border: none;
+    outline: none;
+    background-color: var(--accent1); /* Dark mode color */
+    color: white;
+    cursor: pointer;
+    /* Increased size for better UI/tap target */
+    width: 45px; 
+    height: 45px;
+    line-height: 45px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 20px;
+    box-shadow: 0 4px 10px var(--shadow);
+    transition: background-color var(--transition), transform 0.2s;
+}
+body.light #scrollToTopBtn {
+    background-color: var(--accent2); /* Light mode color */
+    color: white;
+}
+#scrollToTopBtn:hover {
+    background-color: var(--focus-glow); /* Hover effect */
+    color: var(--bg);
+    transform: scale(1.1);
+}
+
+
+/* ==================== 05. MODAL STYLES (Refined) ==================== */
+.app-modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); 
+    display: none; justify-content: center; align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px); 
+}
+.modal-content-box {
+    background-color: var(--card);
+    /* Reduced padding for a more compact look */
+    padding: 20px; 
+    border-radius: 12px;
+    border: 2px solid var(--accent1);
+    box-shadow: 0 0 25px var(--accent1);
+    position: relative;
+    max-width: 95vw;
+    /* Reduced width for a slightly smaller box */
+    width: 400px; 
+    text-align: center;
+    transition: all var(--transition);
+    animation: modalAppear 0.3s ease-out; 
+}
+@keyframes modalAppear {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: -10px; right: -10px;
+    background-color: var(--accent1);
+    color: white;
+    font-size: 16px;
+    width: 30px; height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    font-weight: bold;
+    box-shadow: 0 0 8px var(--accent1);
+    border: 2px solid white;
+}
+
+/* Detail Modal specific styles */
+.modal-detail-img {
+    width: 150px; /* Larger image in detail modal */
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0 auto 15px auto;
+    border: 3px solid var(--accent2);
+    box-shadow: 0 0 15px var(--accent2);
+    cursor: pointer; /* Click to open full image */
+}
+.modal-detail-text {
+    text-align: left;
+}
+.modal-detail-text p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    padding: 5px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1); /* Subtle separator */
+}
+.modal-detail-text p:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.modal-detail-text b {
+    display: inline-block;
+    min-width: 80px; /* Aligning the labels */
+    font-weight: 700;
+    color: var(--accent1);
+}
+
+/* Photo Modal specific styles (kept for image preview) */
+#modalImage {
+    max-width: 100%; max-height: 70vh;
+    border: 2px solid var(--accent2);
+    box-shadow: 0 0 10px var(--accent2);
+    border-radius: 8px;
+}
+#authorPhoto {
+    background-color: var(--card); 
+    width: 130px; height: 130px; /* Adjusted height for standard image/placeholder */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent2);
+    box-shadow: 0 0 10px var(--accent2);
+    margin: 10px auto 20px auto;
+    cursor: pointer; 
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+/* ==================== 06. FOOTER & RESPONSIVE ==================== */
+footer{
+  text-align:center;padding:16px;font-size:0.85em;
+  background:var(--card);box-shadow:0 -2px 8px var(--shadow);
+  margin-top:20px;
+}
+
+@media(max-width:550px){
+  header{
+      /* Even tighter padding on small screens */
+      padding: 6px 10px 3px 10px; 
+  }
+  .title-group h1{
+      font-size:1.3em; /* Keep title font manageable */
+  }
+  .search-box {
+      padding: 8px 10px; 
+  }
+  .container{
+      padding: 10px; 
+  }
+  /* On very small screens, make the detail modal full width */
+  .modal-content-box {
+      width: 95vw;
+  }
 }
 </style>
 </head>
-<body class="light">
+<body onscroll="scrollFunction()">
 
 <header>
-  <div class="title">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg" alt="Nepal Flag">
-    Nepal Government Officials
+  <div class="title-group">
+    <img id="appIcon" src="Flag.jpg" alt="App Icon">
+    <h1 id="appTitle">Nepal Government Officials</h1>
   </div>
-  <div class="controls">
-    <button id="darkBtn" class="toggle-btn" onclick="toggleDarkMode()">☀</button>
-    <button id="langBtn" class="toggle-btn" onclick="toggleLanguage()">EN</button>
-    <span id="time">🕒 --:--<span class="blink">:</span>--</span>
+  
+  <div class="controls-bar">
+    <div class="controls">
+        <button id="darkBtn" class="action-btn" onclick="toggleDarkMode()" title="Toggle Dark/Light Mode">
+            <span class="light-icon">☀</span>
+            <span class="dark-icon">🌙</span>
+        </button>
+        <button class="action-btn" onclick="openAboutModal()" title="About this App">
+            i
+        </button>
+        <button id="langBtn" class="action-btn" onclick="toggleLanguage()">EN</button>
+        <span id="time">🕒 --:--<span class="blink">:</span>--</span>
+    </div>
   </div>
 </header>
 
 <div class="search-box">
-  <input type="text" id="searchInput" placeholder="🔍 Search by name, position, ministry...">
+  <input type="text" id="searchInput" placeholder="🔍 Search by name, position, or ministry...">
 </div>
 
-<div class="container" id="officialsContainer"></div>
+<div class="container" id="officialsContainer">
+    <p style="text-align: center;">🔄 Loading data...</p>
+</div>
 
-<footer>🇳🇵 © David | Nepal Government Officials App</footer>
+<footer>&copy; 2024 Created by David Stha | 🇳🇵 Data Source: KingStha0013/nepal-officals (GitHub)</footer>
+
+<!-- Scroll to Top Button -->
+<button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">⬆</button>
+
+<!-- Detail Modal for showing politician's information -->
+<div id="detailModal" class="app-modal" onclick="closeDetailModal()">
+    <div class="modal-content-box" onclick="event.stopPropagation()">
+        <button class="modal-close-btn" onclick="closeDetailModal()">X</button>
+        <img id="detailModalImage" class="modal-detail-img" src="" alt="Official Photo" 
+             onerror="this.onerror=null;this.src='https://placehold.co/150x150/1C1C1C/DC143C?text=NP';" />
+        <h2 id="detailModalName" style="color:var(--accent1); margin-bottom: 15px; margin-top: 0; font-size: 1.5em;"></h2>
+        <div class="modal-detail-text">
+            <p id="detailModalPosition"></p>
+            <p id="detailModalMinistry"></p>
+            <p id="detailModalParty"></p> <!-- New Party display in modal -->
+            <p id="detailModalSeat"></p>
+        </div>
+    </div>
+</div>
+<!-- Photo Modal (kept for image preview) -->
+<div id="photoModal" class="app-modal" onclick="closePhotoModal()">
+    <div class="modal-content-box" onclick="event.stopPropagation()">
+        <button class="modal-close-btn" onclick="closePhotoModal()">X</button>
+        <img id="modalImage" src="" alt="Official Photo" />
+        <p id="modalCaption" style="margin-top: 10px; font-weight: 700;"></p>
+    </div>
+</div>
+
+<div id="aboutModal" class="app-modal" onclick="closeAboutModal()">
+    <div class="modal-content-box" onclick="event.stopPropagation()">
+        <button class="modal-close-btn" onclick="closeAboutModal()">X</button>
+        <h2 style="color:var(--accent1); margin-bottom: 15px;">Application Details</h2>
+        
+        <img id="authorPhoto" 
+             src="author.jpg" 
+             onerror="this.onerror=null;this.src='https://placehold.co/130x130/1C1C1C/DC143C?text=DAVID STHA';" 
+             alt="App Author Photo"
+             onclick="openPhotoModal(this.src, 'App Author: David Stha')"> 
+
+        <p style="margin-bottom: 15px; font-size: 0.9em; opacity: 0.9;">
+            This application displays a searchable, real-time list of Government Officials of Nepal 
+            using publicly available data from an external GitHub repository. The design is inspired 
+            by the national colors for a modern, high-contrast look.
+        </p>
+        
+        <div style="text-align: left; margin-top: 20px;">
+            <h3 style="color: var(--text); font-size: 1.1em; margin-bottom: 5px;">Contact Author (David Stha)</h3>
+            <p style="font-size: 0.9em; margin: 5px 0;">
+                <span style="color: var(--accent1); font-weight: 700;">Email:</span> 
+                <a href="mailto:davidstha900@gmail.com" style="color: var(--text); text-decoration: underline;">davidstha900@gmail.com</a>
+            </p>
+            <p style="font-size: 0.9em; margin: 5px 0;">
+                <span style="color: var(--accent1); font-weight: 700;">Phone:</span> 
+                <a href="tel:9764598332" style="color: var(--text); text-decoration: underline;">9764598332</a>
+            </p>
+            <p style="font-size: 0.9em; margin: 5px 0;">
+                <span style="color: var(--accent1); font-weight: 700;">YouTube:</span> 
+                <a href="https://youtube.com/@kingamernep?si=nLFUZ-wpKwExxcMH" target="_blank" style="color: var(--text); text-decoration: underline;">@kingamernep</a>
+            </p>
+            <p style="font-size: 0.8em; font-weight: 700; margin-top: 15px; color: var(--focus-glow);">
+                FOR MISTAKES: If you find any data or photo errors, please report them directly via the contact methods above.
+            </p>
+        </div>
+    </div>
+</div>
+
 
 <script>
-let officialsData=[]; let currentLang="en";
+let officialsData=[]; 
+let currentLang="en";
+const GITHUB_PHOTO_BASE_URL = "https://raw.githubusercontent.com/KingStha0013/nepal-officals/main/photos/"; 
+const FALLBACK_NP = 'https://placehold.co/60x60/1C1C1C/DC143C?text=NP'; 
+
+/* ==================== NEW FEATURE: SCROLL TO TOP ==================== */
+
+// When the user scrolls down 20px from the top of the document, show the button
+function scrollFunction() {
+  const btn = document.getElementById("scrollToTopBtn");
+  // Check both document.body (for older browsers) and document.documentElement (for modern browsers)
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    btn.style.display = "flex"; // Use flex to center the arrow
+  } else {
+    btn.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+// Listen for scroll events on the window
+window.onscroll = function() { scrollFunction() };
+
+/* ==================== MODAL FUNCTIONS ==================== */
+function openPhotoModal(imageUrl, name) {
+    document.getElementById('aboutModal').style.display = 'none'; 
+    document.getElementById('detailModal').style.display = 'none'; // Close detail modal if open
+    document.getElementById('modalImage').src = imageUrl;
+    document.getElementById('modalCaption').textContent = name;
+    document.getElementById('photoModal').style.display = 'flex';
+}
+
+function closePhotoModal() {
+    document.getElementById('photoModal').style.display = 'none';
+}
+
+function openAboutModal() {
+    document.getElementById('photoModal').style.display = 'none'; 
+    document.getElementById('detailModal').style.display = 'none'; // Close detail modal if open
+    document.getElementById('aboutModal').style.display = 'flex';
+}
+
+function closeAboutModal() {
+    document.getElementById('aboutModal').style.display = 'none';
+}
+
+// Function to open the Detail Modal with politician's information
+function openDetailModal(officialDataEncoded, isEnglish) {
+    // Decode the URI component before parsing the JSON string
+    const data = JSON.parse(decodeURIComponent(officialDataEncoded)); 
+    const lang = isEnglish ? "en" : "np";
+    
+    // Choose the correct language texts
+    const nameDisplay = lang === "en" ? data.name : (data.name_np || data.name);
+    const posDisplay = lang === "en" ? data.position : (data.position_np || data.position);
+    const minDisplay = lang === "en" ? data.ministry : (data.ministry_np || data.ministry);
+    // NEW: Party
+    const partyDisplay = lang === "en" ? (data.party || "") : (data.party_np || data.party || "");
+    const seatDisplay = data.seat;
+
+    // Determine photo URL
+    let finalPhotoUrl = 'https://placehold.co/150x150/1C1C1C/DC143C?text=NP'; // Bigger fallback
+    const isPhotoAvailable = data.photo && data.photo !== "" && data.name.toLowerCase() !== "vacant";
+
+    if (isPhotoAvailable) {
+        if (data.photo.startsWith('http')) {
+            finalPhotoUrl = data.photo;
+        } 
+        else if (!data.photo.includes('/')) {
+            finalPhotoUrl = data.photo; 
+        }
+        else {
+            finalPhotoUrl = GITHUB_PHOTO_BASE_URL + data.photo;
+        }
+    }
+    
+    // Populate the modal
+    const imgElement = document.getElementById('detailModalImage');
+    imgElement.src = finalPhotoUrl;
+    imgElement.alt = nameDisplay;
+    imgElement.classList.toggle('fallback-image', !isPhotoAvailable);
+    
+    // Allow clicking the image in the detail modal to show the full preview
+    if (isPhotoAvailable) {
+        imgElement.onclick = () => openPhotoModal(finalPhotoUrl, nameDisplay);
+        imgElement.style.cursor = 'pointer';
+    } else {
+        imgElement.onclick = null;
+        imgElement.style.cursor = 'default';
+    }
+    
+    document.getElementById('detailModalName').textContent = nameDisplay;
+
+    // Position
+    document.getElementById('detailModalPosition').innerHTML = `<b>${lang === "en" ? "Position" : "पद"}:</b> ${posDisplay}`;
+
+    // Ministry
+    document.getElementById('detailModalMinistry').innerHTML = `<b>${lang === "en" ? "Ministry" : "मन्त्रालय"}:</b> ${minDisplay}`;
+    
+    // Party
+    const partyElement = document.getElementById('detailModalParty');
+    if (partyDisplay) {
+        partyElement.innerHTML = `<b>${lang === "en" ? "Party" : "पार्टी"}:</b> ${partyDisplay}`;
+        partyElement.style.display = 'block';
+    } else {
+        partyElement.style.display = 'none';
+    }
+
+    // Seat (optional)
+    const seatElement = document.getElementById('detailModalSeat');
+    if (seatDisplay) {
+        seatElement.innerHTML = `<b>${lang === "en" ? "Seat" : "क्षेत्र"}:</b> ${seatDisplay}`;
+        seatElement.style.display = 'block';
+    } else {
+        seatElement.style.display = 'none';
+    }
+
+    // Show the modal
+    document.getElementById('detailModal').style.display = 'flex';
+}
+
+function closeDetailModal() {
+    document.getElementById('detailModal').style.display = 'none';
+}
+
+
+/* ==================== DATA & RENDER FUNCTIONS ==================== */
 
 /* Fetch officials.json from GitHub */
 async function fetchOfficials(){
   const container=document.getElementById("officialsContainer");
-  container.innerHTML="<p>🔄 Loading data...</p>";
+  const loadingMsg = currentLang === "en" ? "🔄 Loading data..." : "🔄 डाटा लोड हुँदैछ...";
+  const errorMsg = currentLang === "en" ? "⚠ Failed to load data!" : "⚠ जडान त्रुटि: डाटा लोड गर्न असफल!";
+
+  container.innerHTML=`<p style="text-align: center;">${loadingMsg}</p>`;
   try{
     const res=await fetch("https://raw.githubusercontent.com/KingStha0013/nepal-officals/main/officials.json?nocache="+new Date().getTime());
+    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+    
     const data=await res.json();
     officialsData=data; renderOfficials();
   }catch(e){
-    console.error(e); container.innerHTML="<p>⚠ Failed to load data!</p>";
+    console.error("Error fetching data:", e); 
+    container.innerHTML=`<p style="text-align: center; color: var(--accent1);">${errorMsg}</p>`;
   }
 }
 
@@ -130,24 +623,69 @@ function renderOfficials(){
   const container=document.getElementById("officialsContainer");
   const search=document.getElementById("searchInput").value.toLowerCase();
   container.innerHTML="";
+  
   const filtered=officialsData.filter(o=>{
-    const name=currentLang==="en"?o.name.toLowerCase():(o.name_np||o.name).toLowerCase();
-    const pos=currentLang==="en"?o.position.toLowerCase():(o.position_np||o.position).toLowerCase();
-    const min=currentLang==="en"?o.ministry.toLowerCase():(o.ministry_np||o.ministry).toLowerCase();
-    return name.includes(search)||pos.includes(search)||min.includes(search);
+    // Include party fields in the search
+    const searchTerms = [
+        o.name, o.position, o.ministry, o.seat, o.party, 
+        o.name_np, o.position_np, o.ministry_np, o.party_np
+    ].map(t => (t || "").toLowerCase());
+    return searchTerms.some(term => term.includes(search));
   });
+
+  const noMatchMsg = currentLang === "en" ? "⚠ No results found!" : "⚠ कुनै नतिजा फेला परेन!";
+
   filtered.forEach(o=>{
-    const card=document.createElement("div");
-    card.className="card";
-    card.innerHTML=`
-      <h3>${highlightText(currentLang==="en"?o.name:(o.name_np||o.name),search)}</h3>
-      <p><b>${currentLang==="en"?"Position":"पद"}:</b> ${highlightText(currentLang==="en"?o.position:(o.position_np||o.position),search)}</p>
-      <p><b>${currentLang==="en"?"Ministry":"मन्त्रालय"}:</b> ${highlightText(currentLang==="en"?o.ministry:(o.ministry_np||o.ministry),search)}</p>
-      ${o.seat?`<p><b>${currentLang==="en"?"Seat":"क्षेत्र"}:</b> ${highlightText(o.seat,search)}</p>`:""}
+    const nameDisplay = currentLang === "en" ? o.name : (o.name_np || o.name);
+    // NEW: Party display on card
+    const partyDisplay = currentLang === "en" ? (o.party || "") : (o.party_np || o.party || "");
+    
+    const isPhotoAvailable = o.photo && o.photo !== "" && o.name.toLowerCase() !== "vacant";
+    let finalPhotoUrl = FALLBACK_NP; 
+    
+    if (isPhotoAvailable) {
+        if (o.photo.startsWith('http')) {
+            finalPhotoUrl = o.photo;
+        } 
+        else if (!o.photo.includes('/')) {
+            finalPhotoUrl = o.photo; 
+        }
+        else {
+            finalPhotoUrl = GITHUB_PHOTO_BASE_URL + o.photo;
+        }
+    }
+    
+    // Use encodeURIComponent to safely embed the JSON string in the onclick attribute
+    const officialDataForModal = encodeURIComponent(JSON.stringify({
+        name: o.name, name_np: o.name_np,
+        position: o.position, position_np: o.position_np,
+        ministry: o.ministry, ministry_np: o.ministry_np,
+        party: o.party, party_np: o.party_np, // Pass party data
+        seat: o.seat, photo: o.photo
+    }));
+    
+    const openDetailFn = `onclick="openDetailModal('${officialDataForModal}', ${currentLang === "en"})"`;
+    const fallbackImgClass = isPhotoAvailable ? '' : 'fallback-image';
+
+    const cardHTML = `
+        <div class="card" ${openDetailFn}> <!-- Card is now clickable to show details -->
+            <img src="${finalPhotoUrl}" alt="${nameDisplay}" class="official-image ${fallbackImgClass}" 
+                onerror="this.onerror=null;this.src='${FALLBACK_NP}'; this.alt='No Photo';">
+            
+            <div class="card-content">
+                <h3>${highlightText(nameDisplay, search)}</h3>
+                <p><b>${currentLang === "en" ? "Position" : "पद"}:</b> ${highlightText(currentLang === "en" ? o.position : (o.position_np || o.position), search)}</p>
+                <p><b>${currentLang === "en" ? "Ministry" : "मन्त्रालय"}:</b> ${highlightText(currentLang === "en" ? o.ministry : (o.ministry_np || o.ministry), search)}</p>
+                ${partyDisplay ? `<p><b>${currentLang === "en" ? "Party" : "पार्टी"}:</b> ${highlightText(partyDisplay, search)}</p>` : ""} <!-- Display party in card -->
+                ${o.seat ? `<p><b>${currentLang === "en" ? "Seat" : "क्षेत्र"}:</b> ${highlightText(o.seat, search)}</p>` : ""}
+            </div>
+        </div>
     `;
-    container.appendChild(card);
+
+    container.insertAdjacentHTML('beforeend', cardHTML);
   });
-  if(filtered.length===0) container.innerHTML="<p>⚠ No results found!</p>";
+  
+  if(filtered.length===0) container.innerHTML=`<p style="text-align: center; color: var(--accent1);">${noMatchMsg}</p>`;
 }
 
 /* Highlight matches */
@@ -155,6 +693,8 @@ function highlightText(text,search){
   if(!search) return text;const regex=new RegExp(`(${search})`,"gi");
   return text.replace(regex,`<span class="highlight">$1</span>`);
 }
+
+/* ==================== TOGGLE FUNCTIONS ==================== */
 
 /* Dark/light mode toggle */
 function toggleDarkMode(){
@@ -165,28 +705,40 @@ function toggleDarkMode(){
 function toggleLanguage(){
   currentLang=currentLang==="en"?"np":"en";
   document.getElementById("langBtn").innerText=currentLang==="en"?"EN":"ने";
+  
+  document.getElementById("appTitle").innerText = currentLang === "en" ? "Nepal Government Officials" : "नेपाल सरकारका अधिकारीहरू";
+  document.getElementById("searchInput").placeholder = currentLang === "en" ? "🔍 Search by name, position, or ministry..." : "🔍 नाम, पद वा मन्त्रालयबाट खोज्नुहोस्...";
+  
   renderOfficials();
 }
+
+/* ==================== TIME & LISTENERS ==================== */
 
 /* Search input event */
 document.getElementById("searchInput").addEventListener("input", renderOfficials);
 
-/* Nepali live time with blinking seconds only */
+/* Nepali live time with blinking seconds (12-hour format) */
 function updateNepaliTime() {
   const d = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kathmandu" }));
-  let h = d.getHours().toString().padStart(2, '0');
-  let m = d.getMinutes().toString().padStart(2, '0');
-  let s = d.getSeconds().toString().padStart(2, '0');
-  document.getElementById("time").innerHTML = `🕒 ${h}:${m}<span class="blink">:</span>${s}`;
+  let hours = d.getHours(); // 0-23
+  const minutes = d.getMinutes().toString().padStart(2, '0');
+  const seconds = d.getSeconds().toString().padStart(2, '0');
+  
+  // 12-hour logic
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // The hour '0' (midnight) should be '12'
+  
+  const hourDisplay = hours.toString(); 
+
+  document.getElementById("time").innerHTML = `🕒 ${hourDisplay}:${minutes}<span class="blink">:</span>${seconds} ${ampm}`;
 }
-setInterval(updateNepaliTime, 1000);
 
-/* Auto-fetch officials every 40 seconds */
-setInterval(fetchOfficials, 40000);
-
-/* Initial load */
+/* Initial load and timed events */
 fetchOfficials();
 updateNepaliTime();
+setInterval(updateNepaliTime, 1000);
+setInterval(fetchOfficials, 60000); 
 </script>
 
 </body>
