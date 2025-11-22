@@ -257,6 +257,16 @@ body.light #scrollToTopBtn {
     z-index: 1000;
     backdrop-filter: blur(5px); 
 }
+/* ==================== ADVERTISEMENT CENTERING ==================== */
+#ad-container {
+    display: flex;           /* Enables flexbox */
+    justify-content: center; /* Horizontally centers the content */
+    align-items: center;     /* Vertically centers the content */
+    width: 100%;             /* Ensures container spans full width */
+    margin: 10px 0;          /* Adds small space top and bottom */
+    overflow: hidden;        /* Prevents scrollbars if ad is slightly too big */
+}
+
 .modal-content-box {
     background-color: var(--card);
     /* Reduced padding for a more compact look */
@@ -277,19 +287,34 @@ body.light #scrollToTopBtn {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Find this section in your CSS and replace it */
 .modal-close-btn {
     position: absolute;
-    top: -10px; right: -10px;
+    /* Changed from -10px to 10px to bring it INSIDE the box */
+    top: 10px; 
+    right: 10px;
+    
     background-color: var(--accent1);
     color: white;
     font-size: 16px;
-    width: 30px; height: 30px;
-    line-height: 30px;
+    width: 30px; 
+    height: 30px;
+    
+    /* Flex ensures the 'X' is perfectly centered */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    line-height: 1; /* Reset line-height to prevent text shifting */
     border-radius: 50%;
     font-weight: bold;
     box-shadow: 0 0 8px var(--accent1);
     border: 2px solid white;
+    
+    /* Ensure it sits on top of everything inside the modal */
+    z-index: 10; 
 }
+
 
 /* Detail Modal specific styles */
 .modal-detail-img {
@@ -364,9 +389,30 @@ footer{
   }
   /* On very small screens, make the detail modal full width */
   .modal-content-box {
-      width: 95vw;
-  }
+    background-color: var(--card);
+    padding: 20px; 
+    border-radius: 12px;
+    
+    /* This ensures the border stays INSIDE the screen */
+    box-sizing: border-box; 
+    
+    border: 2px solid var(--accent1);
+    box-shadow: 0 0 25px var(--accent1);
+    position: relative;
+    
+    /* Better sizing for mobile */
+    width: 100%; 
+    max-width: 400px; 
+    
+    /* Prevents top/bottom cut-off on small screens */
+    max-height: 90vh; 
+    overflow-y: auto; 
+    
+    text-align: center;
+    transition: all var(--transition);
+    animation: modalAppear 0.3s ease-out; 
 }
+
 </style>
 </head>
 <body onscroll="scrollFunction()">
@@ -399,7 +445,7 @@ footer{
 <!-- ADVERTISEMENT CONTAINER WITH FALLBACK/BORDER IMPROVEMENT -->
     <footer><div id="ad-container">
            <!-- The original ad script block -->
-        <script type="text/javascript"> 	atOptions = { 		'key' : 'ee84971bb2fe5ce922bf0508d0d51aeb', 		'format' : 'iframe', 		'height' : 50, 		'width' : 400, 		'params' : {} 	}; </script>
+        <script type="text/javascript"> 	atOptions = { 		'key' : 'ee84971bb2fe5ce922bf0508d0d51aeb', 		'format' : 'iframe', 		'height' : 50, 		'width' : 300, 		'params' : {} 	}; </script>
         <script type="text/javascript" src="//www.highperformanceformat.com/ee84971bb2fe5ce922bf0508d0d51aeb/invoke.js"></script>
     </div></footer>
     <!-- END ADVERTISEMENT CONTAINER -->
@@ -429,7 +475,7 @@ footer{
    <!-- ADVERTISEMENT CONTAINER WITH FALLBACK/BORDER IMPROVEMENT -->
     <footer><div id="ad-container">
            <!-- The original ad script block -->
-        <script type="text/javascript"> 	atOptions = { 		'key' : 'ee84971bb2fe5ce922bf0508d0d51aeb', 		'format' : 'iframe', 		'height' : 50, 		'width' : 400, 		'params' : {} 	}; </script>
+        <script type="text/javascript"> 	atOptions = { 		'key' : 'ee84971bb2fe5ce922bf0508d0d51aeb', 		'format' : 'iframe', 		'height' : 50, 		'width' : 300, 		'params' : {} 	}; </script>
         <script type="text/javascript" src="//www.highperformanceformat.com/ee84971bb2fe5ce922bf0508d0d51aeb/invoke.js"></script>
     </div></footer>
     <!-- END ADVERTISEMENT CONTAINER -->
@@ -446,7 +492,7 @@ footer{
    <!-- ADVERTISEMENT CONTAINER WITH FALLBACK/BORDER IMPROVEMENT -->
     <footer><div id="ad-container">
            <!-- The original ad script block -->
-        <script type="text/javascript"> 	atOptions = { 		'key' : 'ee84971bb2fe5ce922bf0508d0d51aeb', 		'format' : 'iframe', 		'height' : 50, 		'width' : 400, 		'params' : {} 	}; </script>
+        <script type="text/javascript"> 	atOptions = { 		'key' : 'ee84971bb2fe5ce922bf0508d0d51aeb', 		'format' : 'iframe', 		'height' : 50, 		'width' : 300, 		'params' : {} 	}; </script>
         <script type="text/javascript" src="//www.highperformanceformat.com/ee84971bb2fe5ce922bf0508d0d51aeb/invoke.js"></script>
     </div></footer>
     <!-- END ADVERTISEMENT CONTAINER -->
@@ -491,7 +537,7 @@ footer{
    <!-- ADVERTISEMENT CONTAINER WITH FALLBACK/BORDER IMPROVEMENT -->
     <footer><div id="ad-container">
            <!-- The original ad script block -->
-        <script type="text/javascript"> 	atOptions = { 		'key' : 'ee84971bb2fe5ce922bf0508d0d51aeb', 		'format' : 'iframe', 		'height' : 50, 		'width' : 400, 		'params' : {} 	}; </script>
+        <script type="text/javascript"> 	atOptions = { 		'key' : 'ee84971bb2fe5ce922bf0508d0d51aeb', 		'format' : 'iframe', 		'height' : 50, 		'width' : 300, 		'params' : {} 	}; </script>
         <script type="text/javascript" src="//www.highperformanceformat.com/ee84971bb2fe5ce922bf0508d0d51aeb/invoke.js"></script>
     </div></footer>
     <!-- END ADVERTISEMENT CONTAINER -->
