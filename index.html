@@ -17,6 +17,11 @@
   --main-font: 'Roboto', 'Segoe UI', Tahoma, sans-serif;
   --focus-glow: #ffc107; 
 }
+#ad-placeholder { 
+    color: var(--secondary-color); 
+    font-size: 0.8rem; 
+    padding: 5px;
+}
 body.light{
   --bg:#f0f2f5;
   --text:#222;
@@ -396,6 +401,15 @@ footer{
   <input type="text" id="searchInput" placeholder="🔍 Search by name, position, or ministry...">
 </div>
 
+<!-- ADVERTISEMENT CONTAINER WITH FALLBACK/BORDER IMPROVEMENT -->
+    <footer><div id="ad-container">
+           <!-- The original ad script block -->
+        <script type="text/javascript"> 	atOptions = { 		'key' : 'fa002bc06f6ffd45943c2a04fda12fd5', 		'format' : 'iframe', 		'height' : 50, 		'width' : 400, 		'params' : {} 	}; </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/fa002bc06f6ffd45943c2a04fda12fd5/invoke.js"></script>
+    </div></footer>
+    <!-- END ADVERTISEMENT CONTAINER -->
+
+
 <div class="container" id="officialsContainer">
     <p style="text-align: center;">🔄 Loading data...</p>
 </div>
@@ -466,6 +480,7 @@ footer{
         </div>
     </div>
 </div>
+
 
 
 <script>
